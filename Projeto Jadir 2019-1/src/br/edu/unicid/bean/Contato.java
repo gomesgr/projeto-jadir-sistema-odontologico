@@ -21,6 +21,15 @@ public class Contato {
     private Motivo motivo;
     private String mensagem;
 
+	public Contato(String nome, String email, String assunto, Motivo motivo, 
+			String mensagem) {
+		this.nome = nome;
+		this.email = email;
+		this.assunto = assunto;
+		this.motivo = motivo;
+		this.mensagem = mensagem;
+	}
+
 	public String getNome() {
 		return this.nome;
 	}

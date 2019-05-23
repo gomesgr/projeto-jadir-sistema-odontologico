@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class ConnectionFactory {
 	public static Connection getConnection() throws SQLException, ClassNotFoundException {
-		Class.forName("com.mysql.cj.jdbc");
+		Class.forName("com.mysql.cj.jdbc.Driver");
 		
 		String url = "jdbc:mysql://localhost:3306";
 		String usr = "admin";

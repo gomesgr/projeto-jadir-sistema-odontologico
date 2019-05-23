@@ -9,93 +9,93 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import br.edu.unicid.bean.Paciente;
+import br.edu.unicid.bean.Contato;
 import br.edu.unicid.util.ConnectionFactory;
 
-// TODO implementar dados necessarios para a construcao do programa
-public class PacienteDAO 
-{
+public class ContatoDAO {
 	private Connection conn;
-	private PreparedStatement ps;
 	private ResultSet rs;
+	private PreparedStatement ps;
 	
-	public int salvar(Paciente paciente) {
+	public int salvar(Contato contato) {
 		try {
 			conn = ConnectionFactory.getConnection();
-			ps = conn.prepareStatement("INSERT INTO paciente VALUES ()"); 
+			ps = conn.prepareStatement("INSERT INTO contato VALUES ()"); 
 			int ret = ps.executeUpdate();
 			ConnectionFactory.close(conn, ps);
 			return ret;
 		} catch (SQLException | ClassNotFoundException e) {
-			JOptionPane.showMessageDialog(null, "Erro ao salvar o paciente: " + e.getLocalizedMessage() , "Erro de Inclusão", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Erro ao salvar o contato: " +
+					e.getLocalizedMessage() , "Erro de Inclusão", 
+					JOptionPane.ERROR_MESSAGE);
 		}
 		return 0;
 	}
 	
-	public int remover (Paciente paciente) {
+	public int remover (Contato contato) {
 		try {
 			conn = ConnectionFactory.getConnection();
-			ps = conn.prepareStatement("DELETE FROM paciente WHERE cpf = ?");
+			ps = conn.prepareStatement("DELETE FROM contato WHERE id = ?");
 			int ret = ps.executeUpdate();
 			ConnectionFactory.close(conn, ps);
 			return ret;
 		} catch (SQLException | ClassNotFoundException e) {
-			JOptionPane.showMessageDialog(null, "Erro ao remover o paciente: " + 
+			JOptionPane.showMessageDialog(null, "Erro ao remover o contato: " + 
 					e.getLocalizedMessage() , "Erro de Remoção", 
 					JOptionPane.ERROR_MESSAGE);
 		}
 		return 0;
 	}
 	
-	public int alterar (Paciente paciente) {
+	public int alterar (Contato contato) {
 		try {
 			conn = ConnectionFactory.getConnection();
-			ps = conn.prepareStatement("UPDATE paciente SET");
+			ps = conn.prepareStatement("UPDATE contato SET");
 			int ret = ps.executeUpdate();
 			ConnectionFactory.close(conn, ps);
 			return ret;
 		} catch (SQLException | ClassNotFoundException e) {
-			JOptionPane.showMessageDialog(null, "Erro ao alterar o paciente: " +
-					e.getLocalizedMessage() , "Erro de alteração", 
+			JOptionPane.showMessageDialog(null, "Erro ao alterar o contato: " +
+					e.getLocalizedMessage() , "Erro de Alteração", 
 					JOptionPane.ERROR_MESSAGE);
 		}
 		return 0;
 	}
 	
-	public List<Paciente> listarTodos() {
+	public List<Contato> listarTodos() {
 		try {
 			conn = ConnectionFactory.getConnection();
-			ps = conn.prepareStatement("SELECT * FROM paciente");
+			ps = conn.prepareStatement("SELECT * FROM contato");
 			rs = ps.executeQuery(); 
 			
-			List<Paciente> pacientes = new LinkedList<>();
-			// TODO completar mais tarde
+			List<Contato> contatos = new LinkedList<>();
+			// TODO Completar mais tarde
 			while (rs.next()) {
-				pacientes.add(
-					new Paciente()
+				contatos.add(
+					new Contato()
 				);
 			}
 			ConnectionFactory.close(conn, ps, rs);
-			return pacientes;
-		} catch (SQLException e) {
-			JOptionPane.showMessageDialog(null, 
-					"Erro ao listar todos os pacientes: " + 
-					e.getLocalizedMessage() , "Erro de Listagem 1", 
+			return contatos;
+		} catch (SQLException | ClassNotFoundException e) {
+			JOptionPane.showMessageDialog(null, "Erro ao listar os contatos: " 
+					+ e.getLocalizedMessage() , "Erro de Listagem 1", 
 					JOptionPane.ERROR_MESSAGE);
 		}
 		return null;
 	}
-	
-	public Paciente listarUnico(Integer cpf) {
+	// TODO concluir implementacao mais tarde
+	public Contato listarUnico(Integer id) {
 		try {
-			// code here
 			conn = ConnectionFactory.getConnection();
-			ps = conn.prepareStatement("SELECT * FROM paciente WHERE id = ?");
-			ps.setInt(1, cpf);
+			ps = conn.prepareStatement("SELECT * FROM contato WHERE id = ?");
+			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
-			ps.executeUpdate();
+			Contato c = new Contato();
+			ConnectionFactory.close(conn, ps, rs);
+			return c;
 		} catch (SQLException | ClassNotFoundException e) {
-			JOptionPane.showMessageDialog(null, "Erro ao listar o paciente: " +
+			JOptionPane.showMessageDialog(null, "Erro ao listar o contato: " +
 					e.getLocalizedMessage() , "Erro de Listagem 2", 
 					JOptionPane.ERROR_MESSAGE);
 		}

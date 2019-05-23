@@ -36,9 +36,9 @@ public class DentistaDAO {
 		try {
 			conn = ConnectionFactory.getConnection();
 			ps = conn.prepareStatement("DELETE FROM dentista WHERE id = ?");
-			// code here 
+			int ret = ps.executeUpdate();
 			ConnectionFactory.close(conn, ps);
-			return ps.executeUpdate();
+			return ret;
 		} catch (SQLException | ClassNotFoundException e) {
 			JOptionPane.showMessageDialog(null, "Erro ao remover o dentista: " + 
 					e.getLocalizedMessage() , "Erro de Remoção", 
@@ -51,9 +51,9 @@ public class DentistaDAO {
 		try {
 			conn = ConnectionFactory.getConnection();
 			ps = conn.prepareStatement("UPDATE dentista SET");
-			// code here 
+			int ret = ps.executeUpdate();
 			ConnectionFactory.close(conn, ps);
-			return ps.executeUpdate();
+			return ret;
 		} catch (SQLException | ClassNotFoundException e) {
 			JOptionPane.showMessageDialog(null, "Erro ao alterar o dentista: " +
 					e.getLocalizedMessage() , "Erro de Alteração", 
