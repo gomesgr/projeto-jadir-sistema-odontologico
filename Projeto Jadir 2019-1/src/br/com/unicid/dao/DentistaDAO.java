@@ -6,11 +6,15 @@ import java.sql.PreparedStatement;
 
 // TODO implementar dados necessarios para a construcao do programa
 public class DentistaDAO {
+	private Connection conn;
+	private ResultSet rs;
+	private PrepareStatement ps;
 	public int salvar(Dentista dentista) {
-		try (Connection conn = ConnectionFactory.getConnection();
-			PreparedStatement ps = conn.prepareStatement("INSERT INTO dentista VALUES ()"); 
-			) {
+		try {
+			conn = ConnectionFactory.getConnection();
+			ps = conn.prepareStatement("INSERT INTO dentista VALUES ()"); 
 			// code here 
+			ConnectionFactory.close(conn, ps);
 			return ps.executeUpdate();
 		} catch (SQLException e) {
 			// code here
@@ -19,11 +23,11 @@ public class DentistaDAO {
 	}
 	
 	public int remover (Dentista dentista) {
-		try (Connection conn = ConnectionFactory.getConnection();
-			PreparedStatement ps = conn.prepareStatement("DELETE FROM dentista WHERE id = ?"); 
-			) {
+		try {
+			conn = ConnectionFactory.getConnection();
+			ps = conn.prepareStatement("DELETE FROM dentista WHERE id = ?");
 			// code here 
-			ps.setInt(1, dentista.getId())
+			ConnectionFactory.close(conn, ps);
 			return ps.executeUpdate();
 		} catch (SQLException e) {
 			// code here
@@ -32,10 +36,11 @@ public class DentistaDAO {
 	}
 	
 	public int alterar (Dentista dentista) {
-		try (Connection conn = ConnectionFactory.getConnection();
-			PreparedStatement ps = conn.prepareStatement("UPDATE dentista SET"); 
-			) {
+		try {
+			conn = ConnectionFactory.getConnection();
+			ps = conn.prepareStatement("UPDATE dentista SET");
 			// code here 
+			ConnectionFactory.close(conn, ps);
 			return ps.executeUpdate();
 		} catch (SQLException e) {
 			// code here
@@ -44,10 +49,11 @@ public class DentistaDAO {
 	}
 	
 	public List<Dentista> listarTodos() {
-		try (Connection conn = ConnectionFactory.getConnection();
-			PreparedStatement ps = conn.prepareStatement("SELECT * FROM dentista")
-			ResultSet rs = ps.executeQuery(); 
-			) {
+		try {
+			conn = ConnectionFactory.getConnection();
+			ps = conn.prepareStatement("SELECT * FROM dentista");
+			rs = ps.executeQuery(); 
+			
 			List<Dentista> dentistas = new LinkedList<>();
 			// code here
 			while (rs.next()) {
@@ -55,16 +61,19 @@ public class DentistaDAO {
 					// values here
 				);
 			}
+			ConnectionFactory.close(conn, ps, rs);
+			return dentistas;
 		} catch (SQLException e) {
 			// code here
 		}
+		return null;
 	}
 	
 	public Dentista listarUnico(Integer id) {
-		try (Connection conn = ConnectionFactory.getConnection();
-			PreparedStatement ps = conn.prepareStatement("SELECT * FROM dentista WHERE id = ?")
-			) {
+		try {
 			// code here
+			Connection conn = ConnectionFactory.getConnection();
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM dentista WHERE id = ?")
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 			return ps.executeUpdate();
