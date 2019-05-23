@@ -7,8 +7,10 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
-import br.com.unicid.util.ConnectionFactory;
+import javax.swing.JOptionPane;
+
 import br.edu.unicid.bean.Paciente;
+import br.edu.unicid.util.ConnectionFactory;
 
 // TODO implementar dados necessarios para a construcao do programa
 public class PacienteDAO 
@@ -16,7 +18,6 @@ public class PacienteDAO
 	private Connection conn;
 	private PreparedStatement ps;
 	private ResultSet rs;
-	private Paciente paciente;
 	
 	public int salvar(Paciente paciente) {
 		try {
@@ -25,8 +26,8 @@ public class PacienteDAO
 			// code here 
 			ConnectionFactory.close(conn, ps);
 			return ps.executeUpdate();
-		} catch (SQLException e) {
-			// code here
+		} catch (SQLException | ClassNotFoundException e) {
+			JOptionPane.showMessageDialog(null, "Erro ao salvar o paciente: " + e.getLocalizedMessage() , "Erro de Inclusão", JOptionPane.ERROR_MESSAGE);
 		}
 		return 0;
 	}
@@ -38,8 +39,8 @@ public class PacienteDAO
 			// code here 
 			ConnectionFactory.close(conn, ps);
 			return ps.executeUpdate();
-		} catch (SQLException e) {
-			// code here
+		} catch (SQLException | ClassNotFoundException e) {
+			JOptionPane.showMessageDialog(null, "Erro ao remover o paciente: " + e.getLocalizedMessage() , "Erro de Remoção", JOptionPane.ERROR_MESSAGE);
 		}
 		return 0;
 	}
@@ -51,8 +52,8 @@ public class PacienteDAO
 			// code here 
 			ConnectionFactory.close(conn, ps);
 			return ps.executeUpdate();
-		} catch (SQLException e) {
-			// code here
+		} catch (SQLException | ClassNotFoundException e) {
+			JOptionPane.showMessageDialog(null, "Erro ao alterar o paciente: " + e.getLocalizedMessage() , "Erro de alteração", JOptionPane.ERROR_MESSAGE);
 		}
 		return 0;
 	}
@@ -64,7 +65,7 @@ public class PacienteDAO
 			rs = ps.executeQuery(); 
 			
 			List<Paciente> pacientes = new LinkedList<>();
-			// code here
+			// TODO completar mais tarde
 			while (rs.next()) {
 				pacientes.add(
 					// values here
@@ -73,7 +74,7 @@ public class PacienteDAO
 			ConnectionFactory.close(conn, ps, rs);
 			return pacientes;
 		} catch (SQLException e) {
-			// code here
+			JOptionPane.showMessageDialog(null, "Erro ao listar todos os pacientes: " + e.getLocalizedMessage() , "Erro de Listagem 1", JOptionPane.ERROR_MESSAGE);
 		}
 		return null;
 	}
@@ -86,8 +87,8 @@ public class PacienteDAO
 			ps.setInt(1, cpf);
 			ResultSet rs = ps.executeQuery();
 			ps.executeUpdate();
-		} catch (SQLException e) {
-			// code here
+		} catch (SQLException | ClassNotFoundException e) {
+			JOptionPane.showMessageDialog(null, "Erro ao listar o paciente: " + e.getLocalizedMessage() , "Erro de Listagem 2", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 }

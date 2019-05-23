@@ -1,4 +1,4 @@
-package br.edu.unicid.util;
+package br.edu.unicid.web;
 
 import java.io.IOException;
 

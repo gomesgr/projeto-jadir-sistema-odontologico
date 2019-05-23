@@ -1,14 +1,22 @@
 package br.edu.unicid.dao;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.LinkedList;
+import java.util.List;
 
-// TODO implementar dados necessarios para a construcao do programa
+import javax.swing.JOptionPane;
+
+import br.edu.unicid.bean.Dentista;
+import br.edu.unicid.util.ConnectionFactory;
+
 public class DentistaDAO {
 	private Connection conn;
 	private ResultSet rs;
-	private PrepareStatement ps;
+	private PreparedStatement ps;
+	
 	public int salvar(Dentista dentista) {
 		try {
 			conn = ConnectionFactory.getConnection();
@@ -16,8 +24,10 @@ public class DentistaDAO {
 			// code here 
 			ConnectionFactory.close(conn, ps);
 			return ps.executeUpdate();
-		} catch (SQLException e) {
-			// code here
+		} catch (SQLException | ClassNotFoundException e) {
+			JOptionPane.showMessageDialog(null, "Erro ao salvar o dentista: " +
+					e.getLocalizedMessage() , "Erro de Inclusão", 
+					JOptionPane.ERROR_MESSAGE);
 		}
 		return 0;
 	}
@@ -29,8 +39,10 @@ public class DentistaDAO {
 			// code here 
 			ConnectionFactory.close(conn, ps);
 			return ps.executeUpdate();
-		} catch (SQLException e) {
-			// code here
+		} catch (SQLException | ClassNotFoundException e) {
+			JOptionPane.showMessageDialog(null, "Erro ao remover o dentista: " + 
+					e.getLocalizedMessage() , "Erro de Remoção", 
+					JOptionPane.ERROR_MESSAGE);
 		}
 		return 0;
 	}
@@ -42,8 +54,10 @@ public class DentistaDAO {
 			// code here 
 			ConnectionFactory.close(conn, ps);
 			return ps.executeUpdate();
-		} catch (SQLException e) {
-			// code here
+		} catch (SQLException | ClassNotFoundException e) {
+			JOptionPane.showMessageDialog(null, "Erro ao alterar o dentista: " +
+					e.getLocalizedMessage() , "Erro de Alteração", 
+					JOptionPane.ERROR_MESSAGE);
 		}
 		return 0;
 	}
@@ -58,27 +72,32 @@ public class DentistaDAO {
 			// code here
 			while (rs.next()) {
 				dentistas.add(
-					// values here
+					new Dentista()
 				);
 			}
 			ConnectionFactory.close(conn, ps, rs);
 			return dentistas;
-		} catch (SQLException e) {
-			// code here
+		} catch (SQLException | ClassNotFoundException e) {
+			JOptionPane.showMessageDialog(null, "Erro ao listar os dentistas: " 
+					+ e.getLocalizedMessage() , "Erro de Listagem 1", 
+					JOptionPane.ERROR_MESSAGE);
 		}
 		return null;
 	}
-	
+	// TODO concluir implementacao mais tarde
 	public Dentista listarUnico(Integer id) {
 		try {
-			// code here
-			Connection conn = ConnectionFactory.getConnection();
-			PreparedStatement ps = conn.prepareStatement("SELECT * FROM dentista WHERE id = ?")
+			conn = ConnectionFactory.getConnection();
+			ps = conn.prepareStatement("SELECT * FROM dentista WHERE id = ?");
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
-			return ps.executeUpdate();
-		} catch (SQLException e) {
-			// code here
+			Dentista d = new Dentista();
+			ConnectionFactory.close(conn, ps, rs);
+			return d;
+		} catch (SQLException | ClassNotFoundException e) {
+			JOptionPane.showMessageDialog(null, "Erro ao listar o dentista: " +
+					e.getLocalizedMessage() , "Erro de Listagem 2", 
+					JOptionPane.ERROR_MESSAGE);
 		}
 	}
 }

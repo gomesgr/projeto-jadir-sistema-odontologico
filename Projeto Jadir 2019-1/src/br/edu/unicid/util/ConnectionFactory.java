@@ -2,11 +2,13 @@ package br.edu.unicid.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ConnectionFactory {
-	public static Connection getConnection() throws SQLException {
-		Class.forName("");
+	public static Connection getConnection() throws SQLException, ClassNotFoundException {
+		Class.forName("com.mysql.cj.jdbc");
 		
 		String url = "jdbc:mysql://localhost:3306";
 		String usr = "admin";
@@ -16,7 +18,7 @@ public class ConnectionFactory {
 		return DriverManager.getConnection(url, usr, pass);
 	}
 	
-	public static void close (Connection conn, PreparedStatement ps, ResultSet rs) 
+	public static void close (Connection conn, PreparedStatement ps, ResultSet rs) {
 		close(conn, ps);
 		try {
 			rs.close();
