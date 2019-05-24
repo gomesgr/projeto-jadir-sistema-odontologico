@@ -41,4 +41,8 @@ public class ManipuladorDeString {
 		}
 		return n;
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> refs/remotes/origin/projetos
