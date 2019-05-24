@@ -16,16 +16,19 @@ public class Servlet extends HttpServlet {
 
     public Servlet() {}
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		processRequest(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		processRequest(request, response);
 	}
-	
-	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	// process new income
+	protected void processRequest(HttpServletRequest request, 
+			HttpServletResponse response) throws ServletException, IOException {
+		String pageID = request.getParameter("pageId");
 	}
 
 }

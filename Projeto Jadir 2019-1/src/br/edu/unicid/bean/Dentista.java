@@ -1,6 +1,5 @@
 package br.edu.unicid.bean;
 
-// TODO implementar dados necessarios para a construcao do programa
 public class Dentista 
 {
 	private Integer id;
@@ -15,36 +14,36 @@ public class Dentista
 		this.cro = cro;
 		this.telefone = telefone;
 	}
-	
-	public Integer getCroDentista() {
-		return cro;
-	}
 
-	public void setCroDentista(Integer cro) {
-		this.cro = cro;
-	}
-
-	public String getTelefoneDentista() {
-		return telefone;
-	}
-
-	public void setTelefoneDentista(String telefone) {
-		this.telefone = telefone;
-	}
-
-	public Integer getIdDentista() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setIdDentista(Integer cpf) {
-		this.id = cpf;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
-	public String getNomeDentista() {
+	public String getNome() {
 		return nome;
 	}
 
-	public void setNomeDentista(String nome) {
+	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public Integer getCro() {
+		return cro;
+	}
+
+	public void setCro(Integer cro) {
+		this.cro = cro;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
 	}
 }

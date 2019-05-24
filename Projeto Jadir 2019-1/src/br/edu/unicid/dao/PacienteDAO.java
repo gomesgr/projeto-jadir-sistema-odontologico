@@ -22,12 +22,19 @@ public class PacienteDAO
 	public int salvar(Paciente paciente) {
 		try {
 			conn = ConnectionFactory.getConnection();
-			ps = conn.prepareStatement("INSERT INTO paciente VALUES ()"); 
+			ps = conn.prepareStatement("INSERT INTO paciente "
+					+ "(nome, cpf, data_nascimento, telefone, sexo, email, "
+					+ "cidade, uf, endereco_residencial, cep, bairro, "
+					+ "num_residencia, historico_doencas, login, senha, sms"
+					+ " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"); 
+			ps.setString(1, paciente.getNomePaciente());
 			int ret = ps.executeUpdate();
 			ConnectionFactory.close(conn, ps);
 			return ret;
 		} catch (SQLException | ClassNotFoundException e) {
-			JOptionPane.showMessageDialog(null, "Erro ao salvar o paciente: " + e.getLocalizedMessage() , "Erro de Inclusão", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Erro ao salvar o paciente: " + 
+				e.getLocalizedMessage() , "Erro de Inclusão", 
+				JOptionPane.ERROR_MESSAGE);
 		}
 		return 0;
 	}

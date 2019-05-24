@@ -10,6 +10,7 @@ public class Paciente
 	private String cpf;
 	private Date dtNasc;
 	private String telefone;
+	private Sexo sexo;
 	private String email;
 	private String cidade;
 	private String uf;
@@ -19,15 +20,16 @@ public class Paciente
 	private String login;
 	private String senha;
 	private Boolean sms;
-	
-	public Paciente(Integer id, String nome, String cpf, Date dtNasc, String telefone, String email, String cidade, String uf,
-			Endereco end, String bairro, String histDoencas, String login, String senha, Boolean sms) 
-	{
-		this.id = id;
+
+	public Paciente(String nome, String cpf, Date dtNasc, String telefone, 
+			Sexo sexo, String email, String cidade,	String uf, Endereco end, 
+			String bairro, String histDoencas, String login, String senha, 
+			Boolean sms) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.dtNasc = dtNasc;
 		this.telefone = telefone;
+		this.sexo = sexo;
 		this.email = email;
 		this.cidade = cidade;
 		this.uf = uf;
@@ -39,115 +41,125 @@ public class Paciente
 		this.sms = sms;
 	}
 	
-	public Integer getIdPaciente() {
+	public Sexo getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(Sexo sexo) {
+		this.sexo = sexo;
+	}
+
+	public Integer getId() {
 		return id;
 	}
 
-	public void setIdPaciente(Integer id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public Date getDtNascPaciente() {
-		return dtNasc;
-	}
-
-	public void setDtNascPaciente(Date dtNasc) {
-		this.dtNasc = dtNasc;
-	}
-
-	public String getTelefonePaciente() {
-		return telefone;
-	}
-
-	public void setTelefonePaciente(String telefone) {
-		this.telefone = telefone;
-	}
-
-	public String getEmailPaciente() {
-		return email;
-	}
-
-	public void setEmailPaciente(String email) {
-		this.email = email;
-	}
-
-	public String getCidadePaciente() {
-		return cidade;
-	}
-
-	public void setCidadePaciente(String cidade) {
-		this.cidade = cidade;
-	}
-
-	public String getUfPaciente() {
-		return uf;
-	}
-
-	public void setUfPaciente(String uf) {
-		this.uf = uf;
-	}
-
-	public Endereco getEndPaciente() {
-		return end;
-	}
-
-	public void setEndPaciente(Endereco end) {
-		this.end = end;
-	}
-
-	public String getBairroPaciente() {
-		return bairro;
-	}
-
-	public void setBairroPaciente(String bairro) {
-		this.bairro = bairro;
-	}
-
-	public String getHistDoencasPaciente() {
-		return histDoencas;
-	}
-
-	public void setHistDoencasPaciente(String histDoencas) {
-		this.histDoencas = histDoencas;
-	}
-
-	public Boolean getSmsPaciente() {
-		return sms;
-	}
-
-	public void setSmsPaciente(Boolean sms) {
-		this.sms = sms;
-	}
-
-	public String getCpfPaciente() {
-		return cpf;
-	}
-
-	public void setCpfPaciente(String cpf) {
-		this.cpf = cpf;
-	}
-
-	public String getNomePaciente() {
+	public String getNome() {
 		return nome;
 	}
 
-	public void setNomePaciente(String nome) {
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
-	public String getLoginPaciente() {
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public Date getDtNasc() {
+		return dtNasc;
+	}
+
+	public void setDtNasc(Date dtNasc) {
+		this.dtNasc = dtNasc;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	public String getUf() {
+		return uf;
+	}
+
+	public void setUf(String uf) {
+		this.uf = uf;
+	}
+
+	public Endereco getEnd() {
+		return end;
+	}
+
+	public void setEnd(Endereco end) {
+		this.end = end;
+	}
+
+	public String getBairro() {
+		return bairro;
+	}
+
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
+
+	public String getHistDoencas() {
+		return histDoencas;
+	}
+
+	public void setHistDoencas(String histDoencas) {
+		this.histDoencas = histDoencas;
+	}
+
+	public String getLogin() {
 		return login;
 	}
 
-	public void setLoginPaciente(String login) {
+	public void setLogin(String login) {
 		this.login = login;
 	}
 
-	public String getSenhaPaciente() {
+	public String getSenha() {
 		return senha;
 	}
 
-	public void setSenhaPaciente(String senha) {
+	public void setSenha(String senha) {
 		this.senha = senha;
-	}	
+	}
+
+	public Boolean getSms() {
+		return sms;
+	}
+
+	public void setSms(Boolean sms) {
+		this.sms = sms;
+	}
+	
+	
 }
