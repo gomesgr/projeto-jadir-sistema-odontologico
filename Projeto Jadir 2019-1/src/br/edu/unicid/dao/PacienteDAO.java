@@ -161,6 +161,7 @@ public class PacienteDAO
 			ps.setInt(1, cpf);
 			ResultSet rs = ps.executeQuery();
 			ps.executeUpdate();
+			ConnectionFactory.close(conn, ps, rs);
 		} catch (SQLException | ClassNotFoundException e) {
 			JOptionPane.showMessageDialog(null, "Erro ao listar o paciente: " +
 					e.getLocalizedMessage() , "Erro de Listagem 2", 

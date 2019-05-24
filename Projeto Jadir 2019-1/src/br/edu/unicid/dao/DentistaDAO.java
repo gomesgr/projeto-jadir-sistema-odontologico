@@ -72,7 +72,11 @@ public class DentistaDAO {
 			// code here
 			while (rs.next()) {
 				dentistas.add(
-					new Dentista()
+					new Dentista(
+							rs.getInt("id"),
+							rs.getString("nome"),
+							rs.getInt("cro"),
+							rs.getString("telefone"))
 				);
 			}
 			ConnectionFactory.close(conn, ps, rs);
@@ -91,13 +95,14 @@ public class DentistaDAO {
 			ps = conn.prepareStatement("SELECT * FROM dentista WHERE id = ?");
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
-			Dentista d = new Dentista();
+			ps.executeUpdate();
 			ConnectionFactory.close(conn, ps, rs);
-			return d;
 		} catch (SQLException | ClassNotFoundException e) {
 			JOptionPane.showMessageDialog(null, "Erro ao listar o dentista: " +
 					e.getLocalizedMessage() , "Erro de Listagem 2", 
 					JOptionPane.ERROR_MESSAGE);
 		}
+		
+		return null;
 	}
 }

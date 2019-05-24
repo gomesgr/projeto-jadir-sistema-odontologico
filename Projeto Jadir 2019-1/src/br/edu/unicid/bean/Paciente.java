@@ -62,8 +62,6 @@ public class Paciente
 		this.sms = sms;
 	}
 
-
-
 	public Sexo getSexo() {
 		return sexo;
 	}
@@ -183,6 +181,4 @@ public class Paciente
 	public void setSms(Boolean sms) {
 		this.sms = sms;
 	}
-	
-	
 }
