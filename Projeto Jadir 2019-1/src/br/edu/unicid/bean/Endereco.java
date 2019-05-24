@@ -3,9 +3,9 @@ package br.edu.unicid.bean;
 public class Endereco {
 	private String logradouro;
 	private String numeroCasa;
-	private Integer cep;
+	private String cep;
 	
-	public Endereco(String logradouro, String numeroCasa, Integer cep) {
+	public Endereco(String logradouro, String numeroCasa, String cep) {
 		super();
 		this.logradouro = logradouro;
 		this.numeroCasa = numeroCasa;
@@ -28,11 +28,11 @@ public class Endereco {
 		this.numeroCasa = numeroCasa;
 	}
 
-	public Integer getCep() {
+	public String getCep() {
 		return cep;
 	}
 
-	public void setCep(Integer cep) {
+	public void setCep(String cep) {
 		this.cep = cep;
 	}
 	

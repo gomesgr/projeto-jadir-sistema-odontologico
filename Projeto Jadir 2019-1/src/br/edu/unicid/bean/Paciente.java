@@ -41,6 +41,29 @@ public class Paciente
 		this.sms = sms;
 	}
 	
+	public Paciente(Integer id, String nome, String cpf, Date dtNasc, 
+			String telefone, Sexo sexo, String email, String cidade, String uf, 
+			Endereco end, String bairro, String histDoencas, String login, 
+			String senha, Boolean sms) {
+		this.id = id;
+		this.nome = nome;
+		this.cpf = cpf;
+		this.dtNasc = dtNasc;
+		this.telefone = telefone;
+		this.sexo = sexo;
+		this.email = email;
+		this.cidade = cidade;
+		this.uf = uf;
+		this.end = end;
+		this.bairro = bairro;
+		this.histDoencas = histDoencas;
+		this.login = login;
+		this.senha = senha;
+		this.sms = sms;
+	}
+
+
+
 	public Sexo getSexo() {
 		return sexo;
 	}
