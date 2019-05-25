@@ -11,7 +11,6 @@ import javax.swing.JOptionPane;
 
 import br.edu.unicid.bean.Endereco;
 import br.edu.unicid.bean.Paciente;
-import br.edu.unicid.bean.Sexo;
 import br.edu.unicid.util.ConnectionFactory;
 
 public class PacienteDAO 
@@ -26,7 +25,7 @@ public class PacienteDAO
 			ps = conn.prepareStatement("INSERT INTO paciente "
 					+ "(nome, cpf, sexo, rg, uf, data_nascimento, telefone, "
 					+ "endereco_residencial, num_residencia, cep, cidade, "
-					+ "bairro, email, login, senha, sms"
+					+ "bairro, email, login, senha, sms)"
 					+ " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"); 
 			ps.setString(1, paciente.getNome());
 			ps.setString(2, paciente.getCpf());
@@ -43,7 +42,7 @@ public class PacienteDAO
 			ps.setString(13, paciente.getEmail());
 			ps.setString(14, paciente.getLogin());
 			ps.setString(15, paciente.getSenha());
-			ps.setBoolean(16, paciente.getSms());
+			ps.setInt(16, paciente.getSms());
 			
 			int ret = ps.executeUpdate();
 			ConnectionFactory.close(conn, ps);
@@ -94,7 +93,7 @@ public class PacienteDAO
 			ps.setString(13, paciente.getEmail());
 			ps.setString(14, paciente.getLogin());
 			ps.setString(15, paciente.getSenha());
-			ps.setBoolean(16, paciente.getSms());
+			ps.setInt(16, paciente.getSms());
 			
 			int ret = ps.executeUpdate();
 			ConnectionFactory.close(conn, ps);

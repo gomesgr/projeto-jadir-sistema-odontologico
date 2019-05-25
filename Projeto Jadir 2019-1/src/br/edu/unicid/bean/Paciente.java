@@ -173,8 +173,10 @@ public class Paciente
 		this.senha = senha;
 	}
 
-	public Boolean getSms() {
-		return sms;
+	public int getSms() {
+		if (sms == true)
+			return 1;
+		return 0;
 	}
 
 	public void setSms(Boolean sms) {
