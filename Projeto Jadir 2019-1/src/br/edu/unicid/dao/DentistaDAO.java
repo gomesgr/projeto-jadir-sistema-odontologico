@@ -30,7 +30,7 @@ public class DentistaDAO {
 			return ret;
 		} catch (SQLException | ClassNotFoundException e) {
 			JOptionPane.showMessageDialog(null, "Erro ao salvar o dentista: " +
-					e.getLocalizedMessage() , "Erro de Inclusão", 
+					e.getLocalizedMessage() , "Erro de InclusÃ£o", 
 					JOptionPane.ERROR_MESSAGE);
 		}
 		return 0;
