@@ -10,7 +10,7 @@ public class Paciente
 	private String cpf;
 	private Date dtNasc;
 	private String telefone;
-	private Sexo sexo;
+	private String sexo;
 	private String email;
 	private String cidade;
 	private String uf;
@@ -22,7 +22,7 @@ public class Paciente
 	private Boolean sms;
 
 	public Paciente(String nome, String cpf, Date dtNasc, String telefone, 
-			Sexo sexo, String email, String cidade,	String uf, Endereco end, 
+			String sexo, String email, String cidade,	String uf, Endereco end, 
 			String bairro, String histDoencas, String login, String senha, 
 			Boolean sms) {
 		this.nome = nome;
@@ -42,7 +42,7 @@ public class Paciente
 	}
 	
 	public Paciente(Integer id, String nome, String cpf, Date dtNasc, 
-			String telefone, Sexo sexo, String email, String cidade, String uf, 
+			String telefone, String sexo, String email, String cidade, String uf, 
 			Endereco end, String bairro, String histDoencas, String login, 
 			String senha, Boolean sms) {
 		this.id = id;
@@ -62,11 +62,11 @@ public class Paciente
 		this.sms = sms;
 	}
 
-	public Sexo getSexo() {
+	public String getSexo() {
 		return sexo;
 	}
 
-	public void setSexo(Sexo sexo) {
+	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
 

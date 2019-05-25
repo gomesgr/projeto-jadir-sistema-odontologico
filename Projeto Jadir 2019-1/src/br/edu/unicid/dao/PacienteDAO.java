@@ -32,7 +32,7 @@ public class PacienteDAO
 			ps.setString(2, paciente.getCpf());
 			ps.setDate(3, paciente.getDtNasc());
 			ps.setString(4, paciente.getTelefone());
-			ps.setString(5, paciente.getSexo().getSexo());
+			ps.setString(5, paciente.getSexo());
 			ps.setString(6, paciente.getEmail());
 			ps.setString(7, paciente.getCidade());
 			ps.setString(8, paciente.getUf());
@@ -84,7 +84,7 @@ public class PacienteDAO
 			ps.setString(2, paciente.getCpf());
 			ps.setDate(3, paciente.getDtNasc());
 			ps.setString(4, paciente.getTelefone());
-			ps.setString(5, paciente.getSexo().getSexo());
+			ps.setString(5, paciente.getSexo());
 			ps.setString(6, paciente.getEmail());
 			ps.setString(7, paciente.getCidade());
 			ps.setString(8, paciente.getUf());
@@ -128,8 +128,7 @@ public class PacienteDAO
 							rs.getString("cpf"),
 							rs.getDate("data_nascimento"),
 							rs.getString("telefone"),
-							rs.getString("sexo") == Sexo.MASCULINO.getSexo() ? 
-									Sexo.MASCULINO : Sexo.FEMININO,
+							rs.getString("sexo"),
 							rs.getString("email"),
 							rs.getString("cidade"),
 							rs.getString("uf"),
