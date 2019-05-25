@@ -1,5 +1,7 @@
 package br.edu.unicid.util;
 
+import java.sql.Date;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 public class ManipuladorDeString {
@@ -44,9 +46,10 @@ public class ManipuladorDeString {
 		return n;
 	}
 	
-	public static String returnDateFromString(String date) 
-			throws IllegalArgumentException {
+	public static Date returnDateFromString(String date) 
+			throws IllegalArgumentException, ParseException {
 		SimpleDateFormat sd = new SimpleDateFormat("dd/MM/yyyy");
-		return sd.format(date);
+		java.util.Date normalDate = sd.parse(date);
+		return new Date(normalDate.getTime());
 	}
 }

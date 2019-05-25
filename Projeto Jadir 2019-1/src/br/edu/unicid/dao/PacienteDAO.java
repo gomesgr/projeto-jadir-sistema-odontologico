@@ -24,33 +24,32 @@ public class PacienteDAO
 		try {
 			conn = ConnectionFactory.getConnection();
 			ps = conn.prepareStatement("INSERT INTO paciente "
-					+ "(nome, cpf, data_nascimento, telefone, sexo, email, "
-					+ "cidade, uf, endereco_residencial, cep, bairro, "
-					+ "num_residencia, historico_doencas, login, senha, sms"
+					+ "(nome, cpf, sexo, rg, uf, data_nascimento, telefone, "
+					+ "endereco_residencial, num_residencia, cep, cidade, "
+					+ "bairro, email, login, senha, sms"
 					+ " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"); 
 			ps.setString(1, paciente.getNome());
 			ps.setString(2, paciente.getCpf());
-			ps.setDate(3, paciente.getDtNasc());
-			ps.setString(4, paciente.getTelefone());
-			ps.setString(5, paciente.getSexo());
-			ps.setString(6, paciente.getEmail());
-			ps.setString(7, paciente.getCidade());
-			ps.setString(8, paciente.getUf());
-			ps.setString(9, paciente.getEnd().getLogradouro());
+			ps.setString(3, paciente.getSexo());
+			ps.setString(4, paciente.getRg());
+			ps.setString(5, paciente.getUf());
+			ps.setDate(6, paciente.getDtNasc());
+			ps.setString(7, paciente.getTelefone());
+			ps.setString(8, paciente.getEnd().getLogradouro());
+			ps.setString(9, paciente.getEnd().getNumeroCasa());
 			ps.setString(10, paciente.getEnd().getCep());
-			ps.setString(11, paciente.getBairro());
-			ps.setString(12, paciente.getEnd().getNumeroCasa());
-			ps.setString(13, paciente.getHistDoencas());
+			ps.setString(11, paciente.getCidade());
+			ps.setString(12, paciente.getBairro());
+			ps.setString(13, paciente.getEmail());
 			ps.setString(14, paciente.getLogin());
 			ps.setString(15, paciente.getSenha());
 			ps.setBoolean(16, paciente.getSms());
+			
 			int ret = ps.executeUpdate();
 			ConnectionFactory.close(conn, ps);
 			return ret;
 		} catch (SQLException | ClassNotFoundException e) {
-			JOptionPane.showMessageDialog(null, "Erro ao salvar o paciente: " + 
-				e.getLocalizedMessage() , "Erro de Inclusão", 
-				JOptionPane.ERROR_MESSAGE);
+			e.printStackTrace();
 		}
 		return 0;
 	}
@@ -74,29 +73,28 @@ public class PacienteDAO
 	public int alterar (Paciente paciente) {
 		try {
 			conn = ConnectionFactory.getConnection();
-			ps = conn.prepareStatement("UPDATE paciente SET"
-					+ "nome=?, cpf=?, data_nascimento=?, telefone=?, sexo=?,"
-					+ "email=?, cidade=?, uf=?, endereco_residencial=?, cep=?"
-					+ "bairro=?, num_residencia=?, historico_doencas=?, login=?"
-					+ "senha=?, sms=? WHERE id=?");
+			ps = conn.prepareStatement("UPDATE paciente SET "
+					+ "nome=?, cpf=?, sexo=?, rg=?, uf=?,"
+					+ "data_nascimento=?, telefone=?, endereco_residencial=?, "
+					+ "num_residencia=?, cep=?, cidade=?, bairro=?, email=?"
+					+ "login=?, senha=?, sms=?");
 			
-			ps.setString(1, paciente.getNome()); 
+			ps.setString(1, paciente.getNome());
 			ps.setString(2, paciente.getCpf());
-			ps.setDate(3, paciente.getDtNasc());
-			ps.setString(4, paciente.getTelefone());
-			ps.setString(5, paciente.getSexo());
-			ps.setString(6, paciente.getEmail());
-			ps.setString(7, paciente.getCidade());
-			ps.setString(8, paciente.getUf());
-			ps.setString(9, paciente.getEnd().getLogradouro());
+			ps.setString(3, paciente.getSexo());
+			ps.setString(4, paciente.getRg());
+			ps.setString(5, paciente.getUf());
+			ps.setDate(6, paciente.getDtNasc());
+			ps.setString(7, paciente.getTelefone());
+			ps.setString(8, paciente.getEnd().getLogradouro());
+			ps.setString(9, paciente.getEnd().getNumeroCasa());
 			ps.setString(10, paciente.getEnd().getCep());
-			ps.setString(11, paciente.getBairro());
-			ps.setString(12, paciente.getEnd().getNumeroCasa());
-			ps.setString(13, paciente.getHistDoencas());
+			ps.setString(11, paciente.getCidade());
+			ps.setString(12, paciente.getBairro());
+			ps.setString(13, paciente.getEmail());
 			ps.setString(14, paciente.getLogin());
 			ps.setString(15, paciente.getSenha());
 			ps.setBoolean(16, paciente.getSms());
-			ps.setInt(17, paciente.getId());
 			
 			int ret = ps.executeUpdate();
 			ConnectionFactory.close(conn, ps);
@@ -126,15 +124,15 @@ public class PacienteDAO
 							rs.getInt("id"),
 							rs.getString("nome"),
 							rs.getString("cpf"),
+							rs.getString("sexo"),
+							rs.getString("rg"),
+							rs.getString("uf"),
 							rs.getDate("data_nascimento"),
 							rs.getString("telefone"),
-							rs.getString("sexo"),
-							rs.getString("email"),
-							rs.getString("cidade"),
-							rs.getString("uf"),
 							end,
+							rs.getString("cidade"),
 							rs.getString("bairro"),
-							rs.getString("historico_doencas"),
+							rs.getString("email"),
 							rs.getString("login"),
 							rs.getString("senha"),
 							rs.getBoolean("sms")
