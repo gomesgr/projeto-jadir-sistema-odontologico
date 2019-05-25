@@ -1,5 +1,7 @@
 package br.edu.unicid.util;
 
+import java.text.SimpleDateFormat;
+
 public class ManipuladorDeString {
 	
 	public static String transformarRg(String rg) {
@@ -41,8 +43,10 @@ public class ManipuladorDeString {
 		}
 		return n;
 	}
-<<<<<<< HEAD
+	
+	public static String returnDateFromString(String date) 
+			throws IllegalArgumentException {
+		SimpleDateFormat sd = new SimpleDateFormat("dd/MM/yyyy");
+		return sd.format(date);
+	}
 }
-=======
-}
->>>>>>> refs/remotes/origin/projetos
