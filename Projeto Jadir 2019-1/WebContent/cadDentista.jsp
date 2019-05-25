@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt_BR">
 
 <head>
 
@@ -61,10 +61,10 @@
             <a class="nav-link" href="contato.html">Contato</a>
           </li>
 		  <li class="nav-item">
-            <a class="nav-link" href="cadConsulta.html">Agenda</a>
+            <a class="nav-link" href="cadConsulta.jsp">Agenda</a>
           </li>	
           <li class="nav-item">
-            <a class="nav-link" href="login.html">Entrar</a>
+            <a class="nav-link" href="login.jsp">Entrar</a>
           </li>
         </ul>
       </div>
@@ -78,92 +78,19 @@
 	 	  	<div id="preto" class="col-sm-12">
 			 	
 				<!-- Início da área editável-->
-			 	<h2 class="titulo">Cadastro de Usuário </h2>
+			 	<h2 class="titulo">Cadastro de Dentista </h2>
 
 				<form method="post" action="Servlet"><!-- colocar aqui o nome da pagina -->
-
-			<input type="hidden" name="pageId" value="cadastroUsuario"/>
+					<input type="hidden" name="pageId" value="cadastroDentista" />
+			
 			<font size="4" face="Sans-serif">
 			Nome:
 			<input type="text" name="nomeCli" placeholder="Digite seu nome" size="55" maxlength="50" required/>
-				
-			CPF:
-			<input type="text" name="cpfCli" placeholder="Digite seu CPF" maxlength="11" required/>
 			
-			<hr/>
-
-			Sexo:<center> 
-					Masculino:
-						<input type="radio" name="sexo" value="M" checked/>
-					Feminino:
-						<input type="radio" name="sexo" value="F"/>
-			</center>
-			<hr/>
-
-
-
-			RG:
-			<input type="text" name="rgCli" placeholder="Digite seu RG">
-			
-			Estado: 
-			<select id="estado" name="estado" >
-			    <option value="AC">Acre</option>
-			    <option value="AL">Alagoas</option>
-			    <option value="AP">Amapá</option>
-			    <option value="AM">Amazonas</option>
-			    <option value="BA">Bahia</option>
-			    <option value="CE">Ceará</option>
-			    <option value="DF">Distrito Federal</option>
-			    <option value="ES">Espírito Santo</option>
-			    <option value="GO">Goiás</option>
-			    <option value="MA">Maranhão</option>
-			    <option value="MT">Mato Grosso</option>
-			    <option value="MS">Mato Grosso do Sul</option>
-			    <option value="MG">Minas Gerais</option>
-			    <option value="PA">Pará</option>
-			    <option value="PB">Paraíba</option>
-			    <option value="PR">Paraná</option>
-			    <option value="PE">Pernambuco</option>
-			    <option value="PI">Piauí</option>
-			    <option value="RJ">Rio de Janeiro</option>
-			    <option value="RN">Rio Grande do Norte</option>
-			    <option value="RS">Rio Grande do Sul</option>
-			    <option value="RO">Rondônia</option>
-			    <option value="RR">Roraima</option>
-			    <option value="SC">Santa Catarina</option>
-			    <option value="SP">São Paulo</option>
-			    <option value="SE">Sergipe</option>
-			    <option value="TO">Tocantins</option>
-			</select>	
-
-			Data de nascimento:
-			<input type="text" name="dtaNasc" maxlength="10" placeholder="dd/mm/aaaa" size="35" required />
-
-			<hr/>
 			Telefone:
 			<input type="text" name="telefoneCli" maxlength="13" placeholder="(xx)xxxxx-xxxx" required/>
-
-			Endereço:
-			<input type="text" name="endCli" maxlength="30" placeholder="Endereço" size="35">
 			
-
-			N°:
-			<input type="text" name="endNumCli" maxlength="5" placeholder="N° da casa" required/>
 			<hr/>
-
-			CEP:
-			<input type="text" name="cepCli" maxlength="8" placeholder="Cep" required/>
-			
-			Cidade:
-			<input type="text" name="cidadeCli" maxlength="40" placeholder="Cidade " required/>
-
-			Bairro:
-			<input type="text" name="bairroCli" maxlength="30" placeholder="Bairro " required/>
-			<hr/>
-
-			Email: 
-			<input type="text" name="emailCli" placeholder="Digite seu email" maxlength="40" required/>
-
 			Login:
 			<input type="text" name="login" maxlength="20" placeholder="Login" required />
 			
@@ -171,16 +98,13 @@
 			Senha:
 			<input type="password" name="senha" maxlength="20" placeholder="Digite sua senha" required/>
 
-			<hr/>
+			
 			Confirme sua senha:
 			<input type="password" name="confSenha" maxlength="20" placeholder="Repita sua senha" required/>
-
 			
 			<hr/>
-
-			Deseja receber avisos de consultas por SMS?
-			<input type="checkbox" name="smsConsulta" value="1" id="smsConsulta" checked>
-
+			CRO:
+			<input type="text" name="croDentista" maxlength="10" placeholder="CRO">
 			<hr/>
 			<center>
 				<input type="submit" value="Cadastrar"/>
@@ -257,5 +181,7 @@
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
+</html>
 
 </html>

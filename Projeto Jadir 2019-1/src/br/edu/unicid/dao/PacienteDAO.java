@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import br.edu.unicid.bean.Endereco;
 import br.edu.unicid.bean.Paciente;
 import br.edu.unicid.util.ConnectionFactory;
+import br.edu.unicid.util.ManipuladorDeString;
 
 public class PacienteDAO 
 {
@@ -28,12 +29,15 @@ public class PacienteDAO
 					+ "bairro, email, login, senha, sms)"
 					+ " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"); 
 			ps.setString(1, paciente.getNome());
-			ps.setString(2, paciente.getCpf());
+			ps.setString(2, ManipuladorDeString.transformarCpf(paciente
+					.getCpf()));
 			ps.setString(3, paciente.getSexo());
-			ps.setString(4, paciente.getRg());
+			ps.setString(4, ManipuladorDeString.transformarRg(paciente
+					.getRg()));
 			ps.setString(5, paciente.getUf());
 			ps.setDate(6, paciente.getDtNasc());
-			ps.setString(7, paciente.getTelefone());
+			ps.setString(7, ManipuladorDeString.transformarTelefone(paciente
+					.getTelefone()));
 			ps.setString(8, paciente.getEnd().getLogradouro());
 			ps.setString(9, paciente.getEnd().getNumeroCasa());
 			ps.setString(10, paciente.getEnd().getCep());
@@ -84,7 +88,8 @@ public class PacienteDAO
 			ps.setString(4, paciente.getRg());
 			ps.setString(5, paciente.getUf());
 			ps.setDate(6, paciente.getDtNasc());
-			ps.setString(7, paciente.getTelefone());
+			ps.setString(7, ManipuladorDeString.transformarTelefone(paciente
+					.getTelefone()));
 			ps.setString(8, paciente.getEnd().getLogradouro());
 			ps.setString(9, paciente.getEnd().getNumeroCasa());
 			ps.setString(10, paciente.getEnd().getCep());
@@ -151,13 +156,33 @@ public class PacienteDAO
 	
 	public Paciente listarUnico(Integer cpf) {
 		try {
-			// code here
 			conn = ConnectionFactory.getConnection();
 			ps = conn.prepareStatement("SELECT * FROM paciente WHERE id = ?");
 			ps.setInt(1, cpf);
 			ResultSet rs = ps.executeQuery();
-			ps.executeUpdate();
+			
+			Endereco end = new Endereco(rs.getString("endereco_residencial"), 
+					rs.getString("num_residencia"), rs.getString("cep"));
+			
+			Paciente p = new Paciente(
+					rs.getInt("id"),
+					rs.getString("nome"),
+					rs.getString("cpf"),
+					rs.getString("sexo"),
+					rs.getString("rg"),
+					rs.getString("uf"),
+					rs.getDate("data_nascimento"),
+					rs.getString("telefone"),
+					end,
+					rs.getString("cidade"),
+					rs.getString("bairro"),
+					rs.getString("email"),
+					rs.getString("login"),
+					rs.getString("senha"),
+					rs.getBoolean("sms")
+				);
 			ConnectionFactory.close(conn, ps, rs);
+			return p;
 		} catch (SQLException | ClassNotFoundException e) {
 			JOptionPane.showMessageDialog(null, "Erro ao listar o paciente: " +
 					e.getLocalizedMessage() , "Erro de Listagem 2", 

@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Cadastro Usuário</title>
+  <title>Entrar</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -27,13 +27,17 @@
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
    <style type="text/css">
    	form {
-    		border: 3px solid #ccc;
-    		border-color: black;
-    		width: 650;
-    		margin: auto;
-    		padding: 1em;
-    		border-radius: 10px;
+    		    border: 3px solid #ccc;
+    			border-color: #000;
+    			width: 300px;
+                background: linear-gradient(gray,white);
+    			margin: auto;
+    			padding: 1em;
+   				border-radius: 10px;
 		}
+	   
+	   
+	   
    </style>
 </head>
 
@@ -62,7 +66,10 @@
           </li>
 		  <li class="nav-item">
             <a class="nav-link" href="cadConsulta.html">Agenda</a>
-          </li>	
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="cadastroUsuario.jsp">Cadastre-se</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="login.html">Entrar</a>
           </li>
@@ -78,115 +85,31 @@
 	 	  	<div id="preto" class="col-sm-12">
 			 	
 				<!-- Início da área editável-->
-			 	<h2 class="titulo">Cadastro de Usuário </h2>
+			 	<h2 class="titulo">Entrar</h2>
+		<center>
+				<form method="get" action=""><!-- colocar aqui o nome da pagina -->
 
-				<form method="post" action="Servlet"><!-- colocar aqui o nome da pagina -->
-
-			<input type="hidden" name="pageId" value="cadastroUsuario"/>
+				<input type="hidden" name="pageId" value="loginPage"/>
 			<font size="4" face="Sans-serif">
-			Nome:
-			<input type="text" name="nomeCli" placeholder="Digite seu nome" size="55" maxlength="50" required/>
-				
-			CPF:
-			<input type="text" name="cpfCli" placeholder="Digite seu CPF" maxlength="11" required/>
+			Login:<br/>
+			<input type="text" name="login" placeholder="1 = Usuário 2 = Dentista" maxlength="30" required/>
+			<hr/>
 			
-			<hr/>
-
-			Sexo:<center> 
-					Masculino:
-						<input type="radio" name="sexo" value="M" checked/>
-					Feminino:
-						<input type="radio" name="sexo" value="F"/>
-			</center>
-			<hr/>
-
-
-
-			RG:
-			<input type="text" name="rgCli" placeholder="Digite seu RG">
-			
-			Estado: 
-			<select id="estado" name="estado" >
-			    <option value="AC">Acre</option>
-			    <option value="AL">Alagoas</option>
-			    <option value="AP">Amapá</option>
-			    <option value="AM">Amazonas</option>
-			    <option value="BA">Bahia</option>
-			    <option value="CE">Ceará</option>
-			    <option value="DF">Distrito Federal</option>
-			    <option value="ES">Espírito Santo</option>
-			    <option value="GO">Goiás</option>
-			    <option value="MA">Maranhão</option>
-			    <option value="MT">Mato Grosso</option>
-			    <option value="MS">Mato Grosso do Sul</option>
-			    <option value="MG">Minas Gerais</option>
-			    <option value="PA">Pará</option>
-			    <option value="PB">Paraíba</option>
-			    <option value="PR">Paraná</option>
-			    <option value="PE">Pernambuco</option>
-			    <option value="PI">Piauí</option>
-			    <option value="RJ">Rio de Janeiro</option>
-			    <option value="RN">Rio Grande do Norte</option>
-			    <option value="RS">Rio Grande do Sul</option>
-			    <option value="RO">Rondônia</option>
-			    <option value="RR">Roraima</option>
-			    <option value="SC">Santa Catarina</option>
-			    <option value="SP">São Paulo</option>
-			    <option value="SE">Sergipe</option>
-			    <option value="TO">Tocantins</option>
-			</select>	
-
-			Data de nascimento:
-			<input type="text" name="dtaNasc" maxlength="10" placeholder="dd/mm/aaaa" size="35" required />
+			Senha:<br>
+			<input type="text" name="senha" maxlength="30" placeholder="Senha" required/>
+			<br/>
+			<a href="recupSenha.html"><font size="2">Esqueceu sua senha?</font></a><br/>
+			<a href="cadastroUsuario.html"><font size="2">Não possui login? Cadastre-se</font></a><br/>
 
 			<hr/>
-			Telefone:
-			<input type="text" name="telefoneCli" maxlength="13" placeholder="(xx)xxxxx-xxxx" required/>
 
-			Endereço:
-			<input type="text" name="endCli" maxlength="30" placeholder="Endereço" size="35">
-			
-
-			N°:
-			<input type="text" name="endNumCli" maxlength="5" placeholder="N° da casa" required/>
-			<hr/>
-
-			CEP:
-			<input type="text" name="cepCli" maxlength="8" placeholder="Cep" required/>
-			
-			Cidade:
-			<input type="text" name="cidadeCli" maxlength="40" placeholder="Cidade " required/>
-
-			Bairro:
-			<input type="text" name="bairroCli" maxlength="30" placeholder="Bairro " required/>
-			<hr/>
-
-			Email: 
-			<input type="text" name="emailCli" placeholder="Digite seu email" maxlength="40" required/>
-
-			Login:
-			<input type="text" name="login" maxlength="20" placeholder="Login" required />
-			
-
-			Senha:
-			<input type="password" name="senha" maxlength="20" placeholder="Digite sua senha" required/>
-
-			<hr/>
-			Confirme sua senha:
-			<input type="password" name="confSenha" maxlength="20" placeholder="Repita sua senha" required/>
-
-			
-			<hr/>
-
-			Deseja receber avisos de consultas por SMS?
-			<input type="checkbox" name="smsConsulta" value="1" id="smsConsulta" checked>
-
-			<hr/>
-			<center>
-				<input type="submit" value="Cadastrar"/>
+		
+				<input type="submit" value="Logar"/>
 				<input type="reset" value="Limpar"/>
-			</center>
+			
+		</font>
 		</form>
+			</center>
 				<!-- Fim da área editável-->				
 				
 			 </div>
@@ -194,11 +117,10 @@
 				 
 				 
 				 </div>
-		 	</div>
+		 	
 		 <div class="row">
 			 <div id="verde" class="col-sm-12"></div>
-		 </div>
-	  </div>
+	</div>
 	  
 	 <footer class="py-5 bg-black">
     
@@ -226,36 +148,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+	
+	  <script src="vendor/jquery/jquery.min.js"></script>
+  	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-  <!-- Bootstrap core JavaScript -->
-				
-				
-				
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-</body>
 
 </html>

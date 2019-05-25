@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.edu.unicid.bean.Dentista;
 import br.edu.unicid.bean.Endereco;
 import br.edu.unicid.bean.Paciente;
+import br.edu.unicid.dao.DentistaDAO;
 import br.edu.unicid.dao.PacienteDAO;
 import br.edu.unicid.util.ManipuladorDeString;
 
@@ -40,45 +42,51 @@ public class Servlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		String pageId = request.getParameter("pageId");
 		switch (pageId) {
-		case "cadastroUsuario":
-			try {
-				Endereco end = new Endereco(request.getParameter("endCli"),
-						request.getParameter("endNumCli"),
-						request.getParameter("cepCli")
-						);
-				System.out.println(request.getParameter("smsConsulta"));
-				boolean b;
-				if (request.getParameter("smsConsulta") != null)
-					b = true;
-				else
-					b = false;
-				PacienteDAO pdao = new PacienteDAO();
-				System.out.println(pdao.salvar(new Paciente(
-						request.getParameter("nomeCli"),
-						ManipuladorDeString.transformarCpf(
-							request.getParameter("cpfCli")
-						),
-						request.getParameter("sexo"),
-						ManipuladorDeString.transformarRg(
-							request.getParameter("rgCli")
-						),
-						request.getParameter("estado"),
-						ManipuladorDeString.returnDateFromString(
-							request.getParameter("dtaNasc")
-						),
-						request.getParameter("telefoneCli"),
-						end,
-						request.getParameter("cidade"),
-						request.getParameter("bairroCli"),
-						request.getParameter("emailCli"),
-						request.getParameter("login"),
-						request.getParameter("senha"),
-						b
-				)));
-			} catch (ParseException e) {
-				e.printStackTrace();
-			}
-			break;
+			case "cadastroUsuario":
+				try {
+					Endereco end = new Endereco(request.getParameter("endCli"),
+							request.getParameter("endNumCli"),
+							request.getParameter("cepCli")
+							);
+					System.out.println(request.getParameter("smsConsulta"));
+					boolean b;
+					if (request.getParameter("smsConsulta") != null)
+						b = true;
+					else
+						b = false;
+					PacienteDAO pdao = new PacienteDAO();
+					System.out.println(pdao.salvar(new Paciente(
+							request.getParameter("nomeCli"),
+							request.getParameter("cpfCli"),
+							request.getParameter("sexo"),
+							request.getParameter("rgCli"),
+							request.getParameter("estado"),	
+							ManipuladorDeString.returnDateFromString(request
+								.getParameter("dtaNasc")),
+							request.getParameter("telefoneCli"),
+							end,
+							request.getParameter("cidade"),
+							request.getParameter("bairroCli"),
+							request.getParameter("emailCli"),
+							request.getParameter("login"),
+							request.getParameter("senha"),
+							b
+					)) + " linha(s) alterada(s)");
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+				break;
+			case "cadastroDentista":
+				DentistaDAO ddao = new DentistaDAO();
+				System.out.println(ddao.salvar(new Dentista(
+							request.getParameter("nomeCli"),
+							Integer.parseInt(request.getParameter("croDentista")),
+							request.getParameter("telefoneCli"),
+							request.getParameter("login"),
+							request.getParameter("senha")
+						)
+					)
+				+ " linha(s) alterada(s)");	
 		}
 	}
 
