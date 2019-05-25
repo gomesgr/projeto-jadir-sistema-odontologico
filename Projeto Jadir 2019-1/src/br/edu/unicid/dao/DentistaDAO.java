@@ -21,7 +21,6 @@ public class DentistaDAO {
 	public int salvar(Dentista dentista) {
 		try {
 			conn = ConnectionFactory.getConnection();
-<<<<<<< HEAD
 			ps = conn.prepareStatement("INSERT INTO dentista (nome,cro,"
 					+ "telefone,login,senha) VALUES (?,?,?,?,?)"); 
 			 
@@ -31,24 +30,22 @@ public class DentistaDAO {
 					.getTelefone()));
 			ps.setString(4, dentista.getLogin());
 			ps.setString(5, dentista.getSenha());
-=======
-			ps = conn.prepareStatement("INSERT INTO dentista (Nome, CRO, Telefone) VALUES (?,?,?)"); 
-			// code here 
+			ps = conn.prepareStatement("INSERT INTO dentista (nome, cro, "
+					+ "telefone, login, senha) VALUES (?,?,?,?,?)"); 
 			ps.setString(1, dentista.getNome());
 			ps.setInt(2, dentista.getCro());
 			ps.setString(3, dentista.getTelefone());
->>>>>>> refs/remotes/home/projetos
+			ps.setString(4, dentista.getLogin());
+			ps.setString(5, dentista.getSenha());
 			int ret = ps.executeUpdate();
 			ConnectionFactory.close(conn, ps);
 			return ret;
 		} catch (SQLException | ClassNotFoundException e) {
-<<<<<<< HEAD
 			e.printStackTrace();
-=======
 			JOptionPane.showMessageDialog(null, "Erro ao salvar o dentista: " +
-					e.getLocalizedMessage() , "Erro de InclusÃ£o", 
+					e.getLocalizedMessage() , "Erro de Inclusao", 
 					JOptionPane.ERROR_MESSAGE);
->>>>>>> refs/remotes/home/projetos
+
 		}
 		return 0;
 	}
