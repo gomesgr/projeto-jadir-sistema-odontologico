@@ -20,13 +20,17 @@ public class DentistaDAO {
 	public int salvar(Dentista dentista) {
 		try {
 			conn = ConnectionFactory.getConnection();
-			ps = conn.prepareStatement("INSERT INTO dentista VALUES ()"); 
+			ps = conn.prepareStatement("INSERT INTO dentista (Nome, CRO, Telefone) VALUES (?,?,?)"); 
 			// code here 
+			ps.setString(1, dentista.getNome());
+			ps.setInt(2, dentista.getCro());
+			ps.setString(3, dentista.getTelefone());
+			int ret = ps.executeUpdate();
 			ConnectionFactory.close(conn, ps);
-			return ps.executeUpdate();
+			return ret;
 		} catch (SQLException | ClassNotFoundException e) {
 			JOptionPane.showMessageDialog(null, "Erro ao salvar o dentista: " +
-					e.getLocalizedMessage() , "Erro de Inclusão", 
+					e.getLocalizedMessage() , "Erro de InclusÃ£o", 
 					JOptionPane.ERROR_MESSAGE);
 		}
 		return 0;
