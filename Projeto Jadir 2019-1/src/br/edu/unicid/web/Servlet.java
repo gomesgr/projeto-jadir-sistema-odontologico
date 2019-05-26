@@ -100,7 +100,7 @@ public class Servlet extends HttpServlet {
 				rd = request.getRequestDispatcher("/listarPacientes.jsp");
 				rd.forward(request, response);
 				break;
-			case "excluir":
+			case "excluirPacientes":
 				pdao = new PacienteDAO();
 				Paciente paciente = new Paciente();
 				paciente.setId(Integer.parseInt(request.getParameter("pacienteId")));

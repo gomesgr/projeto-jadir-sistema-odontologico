@@ -92,7 +92,7 @@
 		 <!-- <li class="nav-item"><a class="nav-link">Nome do cliente-->
 			  	<div class="dropdown">
   					<button class="dropbtn"><% if (session.getAttribute("usuario") != null) 
-  												out.write("Bem vindo " + session.getAttribute("usuario")); 
+  												out.write("Bem vindo, " + session.getAttribute("usuario")); 
   												else {
   													RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
   													session.setAttribute("confirme", "logue-se");
