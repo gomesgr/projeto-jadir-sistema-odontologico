@@ -2,7 +2,9 @@ package br.edu.unicid.web;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,6 +42,10 @@ public class Servlet extends HttpServlet {
 	protected void processRequest(HttpServletRequest request, 
 			HttpServletResponse response) throws ServletException, IOException {
 		String pageId = request.getParameter("pageId");
+		RequestDispatcher rd = null;
+		PacienteDAO pdao;
+		DentistaDAO ddao;
+		List<Paciente> pacientes;
 		switch (pageId) {
 			case "cadastroUsuario":
 				try {
@@ -53,7 +59,7 @@ public class Servlet extends HttpServlet {
 						b = true;
 					else
 						b = false;
-					PacienteDAO pdao = new PacienteDAO();
+					pdao = new PacienteDAO();
 					System.out.println(pdao.salvar(new Paciente(
 							request.getParameter("nomeCli"),
 							request.getParameter("cpfCli"),
@@ -76,7 +82,7 @@ public class Servlet extends HttpServlet {
 				}
 				break;
 			case "cadastroDentista":
-				DentistaDAO ddao = new DentistaDAO();
+				ddao = new DentistaDAO();
 				System.out.println(ddao.salvar(new Dentista(
 							request.getParameter("nomeCli"),
 							Integer.parseInt(request.getParameter("croDentista")),
@@ -86,6 +92,27 @@ public class Servlet extends HttpServlet {
 						)
 					)
 				+ " linha(s) alterada(s)");	
+				break;
+			case "listarPacientes":
+				pdao = new PacienteDAO();
+				pacientes = pdao.listarTodos();
+				request.setAttribute("pacientes", pacientes);
+				rd = request.getRequestDispatcher("/listarPacientes.jsp");
+				rd.forward(request, response);
+				break;
+			case "excluir":
+				pdao = new PacienteDAO();
+				Paciente paciente = new Paciente();
+				paciente.setId(Integer.parseInt(request.getParameter("pacienteId")));
+				pdao.remover(paciente);
+				pacientes = pdao.listarTodos();
+				request.setAttribute("pacientes", pacientes);
+				rd = request.getRequestDispatcher("/listarPacientes.jsp");
+				rd.forward(request, response);
+				break;
+			default:
+				System.out.println("eae");
+				break;
 		}
 	}
 

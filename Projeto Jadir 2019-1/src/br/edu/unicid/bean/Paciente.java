@@ -58,6 +58,11 @@ public class Paciente
 		this.senha = senha;
 		this.sms = sms;
 	}
+	
+	
+
+	public Paciente() {
+	}
 
 	public String getSexo() {
 		return sexo;

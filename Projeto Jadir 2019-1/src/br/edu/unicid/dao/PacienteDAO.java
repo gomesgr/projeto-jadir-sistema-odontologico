@@ -60,8 +60,8 @@ public class PacienteDAO
 	public int remover (Paciente paciente) {
 		try {
 			conn = ConnectionFactory.getConnection();
-			ps = conn.prepareStatement("DELETE FROM paciente WHERE cpf = ?");
-			ps.setString(1, paciente.getCpf());
+			ps = conn.prepareStatement("DELETE FROM paciente WHERE id = ?");
+			ps.setInt(1, paciente.getId());
 			int ret = ps.executeUpdate();
 			ConnectionFactory.close(conn, ps);
 			return ret;
