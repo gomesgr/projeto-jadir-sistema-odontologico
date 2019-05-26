@@ -198,7 +198,7 @@ public class PacienteDAO
 			conn = ConnectionFactory.getConnection();
 			ps = conn.prepareStatement("SELECT login, senha FROM paciente WHERE login = ?, senha = ?");
 			ps.setString(1, login);
-			ps.setString(2, login);
+			ps.setString(2, senha);
 			ResultSet rs = ps.executeQuery();
 			
 			if(rs != null)
