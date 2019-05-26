@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<jsp:include page="canceladorConfirme.jsp" />
-
 <head>
 
   <meta charset="utf-8">
@@ -73,16 +71,16 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
 		<li class="nav-item">
-            <a class="nav-link" href="index.html">Início</a>
+            <a class="nav-link" href="index.jsp">Início</a>
          </li>
 		<li class="nav-item">
-            <a class="nav-link" href="sobre.html">Sobre nós</a>
+            <a class="nav-link" href="sobre.jsp">Sobre nós</a>
          </li>
 		<li class="nav-item">
-            <a class="nav-link" href="contato.html">Contato</a>
+            <a class="nav-link" href="contato.jsp">Contato</a>
           </li>
 		  <li class="nav-item">
-            <a class="nav-link" href="cadConsulta.jsp">Agenda</a>
+            <a class="nav-link" href="agenda.jsp">Agenda</a>
           </li>
           <li>
           <div class="dropdown ">
@@ -95,7 +93,15 @@
         </div>
       </li>
           <li class="nav-item">
-            <a class="nav-link" href="login.jsp">Entrar</a>
+          	<%
+          		if (session.getAttribute("usuario") != null) {
+          			out.write("");
+          			
+          			out.write("<a class=\"nav-link\">Bem vindo: " + session.getAttribute("usuario")+"</a>");
+          		} else {
+          			out.write("<a class=\"nav-link\" href=\"login.jsp\">Entrar</a>");	
+          		}
+          	%>
           </li>
 
 

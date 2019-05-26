@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <%
-	session.setAttribute("confirme", "");
+	session.setAttribute("confirme", " ");
 %>
 <head>
 </head>

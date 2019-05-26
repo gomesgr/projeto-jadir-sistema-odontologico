@@ -125,22 +125,22 @@
             <a class="nav-link" href="index.jsp">Início</a>
          </li>
 		<li class="nav-item">
-            <a class="nav-link" href="sobre.html">Sobre nós</a>
+            <a class="nav-link" href="sobre.jsp">Sobre nós</a>
          </li>
 		<li class="nav-item">
-            <a class="nav-link" href="contato.html">Contato</a>
+            <a class="nav-link" href="contato.jsp">Contato</a>
           </li>
 		  <li class="nav-item">
-            <a class="nav-link" href="cadConsulta.html">Agenda</a>
+            <a class="nav-link" href="agenda.jsp">Agenda</a>
           </li>
           <div class="dropdown">
-  					<button class="dropbtn"><% if (session.getAttribute("usuario") != null) 
-  												out.write("Bem vindo " + session.getAttribute("usuario")); 
+  					<button class="dropbtn nav-link"><% if (session.getAttribute("usuario") != null) 
+  												out.write(" Bem vindo " + session.getAttribute("usuario")); 
   												
   												else {
-  													out.write("Cliente");
+  													out.write("ENTRAR");
   													RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
-  													session.setAttribute("confirme", "Logue-se");
+  													session.setAttribute("confirme", "logue-se");
   													rd.forward(request, response);
   												}
   													
@@ -148,7 +148,26 @@
 					
   					<div class="dropdown-content">
     					<a href="cadConsulta.jsp">Agendar Consulta</a>
-    					<a href="index.html">Sair</a>
+    					<style>
+    						.button {
+    							 background-color:#f1f1f1;
+						         border: none;
+						         color: black;
+						         padding: 10px 120px 10px 10px;
+						         text-align: left;
+						         text-decoration: none;
+						         display: inline-block;
+						         font-size: 16x;
+						         margin:0px 0px 0px 0px;
+						         cursor: pointer;
+    						}
+    						.button:hover {
+    							background-color:#ddd;
+    						}
+    					</style>
+    					<form action="LoginServlet" method="get" style="border:none;background:none;padding:0px;margin:auto;">
+    						<button class="button" type="submit">Sair</button>
+    					</form>
 					</div>
 					
       </div>

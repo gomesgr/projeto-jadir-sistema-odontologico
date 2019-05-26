@@ -65,7 +65,6 @@
 </head>
 
 <body>
-
     
     <div class="container fluid">
         <div id="vermelho" class="col-sm-12">
@@ -82,21 +81,23 @@
             <a class="nav-link" href="index.jsp">Início</a>
          </li>
         <li class="nav-item">
-            <a class="nav-link" href="sobre.html">Sobre nós</a>
+            <a class="nav-link" href="sobre.jsp">Sobre nós</a>
          </li>
         <li class="nav-item">
-            <a class="nav-link" href="contato.html">Contato</a>
+            <a class="nav-link" href="contato.jsp">Contato</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="agenda.html">Agenda</a>
+            <a class="nav-link" href="agenda.jsp">Agenda</a>
           </li>
          <!-- <li class="nav-item"><a class="nav-link">Nome do cliente-->
                 <div class="dropdown">
-                    <button class="dropbtn"><%out.write(""+session.getAttribute("usuario"));%></button>
+                    <button class="dropbtn"><%out.write("<a class=\"nav-link\"Bem vindo: " + 
+                			session.getAttribute("usuario")+ "</a>");
+                		%></button>
                     
                     <div class="dropdown-content">
                         <a href="cadConsulta.jsp">Agendar Consulta</a>
-                        <a href="index.html">Sair</a>
+                        <a href="index.jsp">Sair</a>
                     </div>
                     
       </div>

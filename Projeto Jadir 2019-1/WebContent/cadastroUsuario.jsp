@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<jsp:include page="canceladorConfirme.jsp" />
 <head>
 
   <meta charset="utf-8">
@@ -54,16 +54,19 @@
             <a class="nav-link" href="index.jsp">Início</a>
          </li>
 		<li class="nav-item">
-            <a class="nav-link" href="sobre.html">Sobre nós</a>
+            <a class="nav-link" href="sobre.jsp">Sobre nós</a>
          </li>
 		<li class="nav-item">
-            <a class="nav-link" href="contato.html">Contato</a>
+            <a class="nav-link" href="contato.jsp">Contato</a>
           </li>
 		  <li class="nav-item">
-            <a class="nav-link" href="cadConsulta.html">Agenda</a>
+            <a class="nav-link" href="agenda.jsp">Agenda</a>
           </li>	
           <li class="nav-item">
-            <a class="nav-link" href="login.html">Entrar</a>
+            <a class="nav-link" href="login.jsp"><%		
+           			out.write("Entrar");
+           			session.setAttribute("usuario", null);
+            %></a>
           </li>
         </ul>
       </div>

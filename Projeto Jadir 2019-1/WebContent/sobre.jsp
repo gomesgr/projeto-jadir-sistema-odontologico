@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Sobre NÃ³s</title>
+  <title>Sobre Nós</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -80,36 +80,43 @@
 		<!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container">
-      <img src="img/newlogo3.png"><a class="navbar-brand" href="#">&nbsp CORAÃ‡Ã•ES</a>
+      <img src="img/newlogo3.png"><a class="navbar-brand" href="#">&nbsp CORAÇÕES</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
 		<li class="nav-item">
-            <a class="nav-link" href="index.jsp">InÃ­cio</a>
+            <a class="nav-link" href="index.jsp">Início</a>
          </li>
 		<li class="nav-item">
-            <a class="nav-link" href="sobre.html">Sobre nÃ³s</a>
+            <a class="nav-link" href="sobre.jsp">Sobre nós</a>
          </li>
 		<li class="nav-item">
-            <a class="nav-link" href="contato.html">Contato</a>
+            <a class="nav-link" href="contato.jsp">Contato</a>
           </li>
 		  <li class="nav-item">
-            <a class="nav-link" href="cadConsulta.html">Agenda</a>
+            <a class="nav-link" href="agenda.jsp">Agenda</a>
           </li>
           <li>
           <div class="dropdown">
             <button class="dropbtn">Cadastre-se</button>
           
             <div class="dropdown-content">
-              <a href="cadastroUsuario.html">Cliente</a>
-              <a href="cadDentista.html">Dentista</a>
+              <a href="cadastroUsuario.jsp">Cliente</a>
+              <a href="cadDentista.jsp">Dentista</a>
           </div>
         </div>
       </li>
-          <li class="nav-item">
-            <a class="nav-link" href="login.jsp">Entrar</a>
+          <li class="nav-item"> <%
+            if (session.getAttribute("usuario") != null) {
+          			out.write("");
+          			
+          			out.write("<a class=\"nav-link\">Bem vindo: " + session.getAttribute("usuario")+"</a>");
+          		} else {
+          			out.write("<a class=\"nav-link\" href=\"login.jsp\">Entrar</a>");	
+          		}
+			%>
           </li>
         </ul>
       </div>
@@ -122,7 +129,7 @@
 		 <div class="row">
 	 	  	<div id="preto" class="col-sm-12">
 			 	
-				<!-- InÃ­cio da Ã¡rea editÃ¡vel-->
+				<!-- Início da área editável-->
 			 	<h1 class="titulo">Quem somos</h1>
 			 	<hr>
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.
@@ -131,7 +138,7 @@
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.
 
-				<!-- Fim da Ã¡rea editÃ¡vel-->				
+				<!-- Fim da área editável-->				
 				
 			 </div>
 		 </div>

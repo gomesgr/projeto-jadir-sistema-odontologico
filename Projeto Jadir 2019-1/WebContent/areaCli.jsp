@@ -81,20 +81,24 @@
             <a class="nav-link" href="index.jsp">Início</a>
          </li>
 		<li class="nav-item">
-            <a class="nav-link" href="sobre.html">Sobre nós</a>
+            <a class="nav-link" href="sobre.jsp">Sobre nós</a>
          </li>
 		<li class="nav-item">
-            <a class="nav-link" href="contato.html">Contato</a>
+            <a class="nav-link" href="contato.jsp">Contato</a>
           </li>
 		  <li class="nav-item">
-            <a class="nav-link" href="cadConsulta.html">Agenda</a>
+            <a class="nav-link" href="agenda.jsp">Agenda</a>
           </li>
 		 <!-- <li class="nav-item"><a class="nav-link">Nome do cliente-->
 			  	<div class="dropdown">
   					<button class="dropbtn"><% if (session.getAttribute("usuario") != null) 
   												out.write("Bem vindo " + session.getAttribute("usuario")); 
-  												else
-  													out.write("Cliente");
+  												else {
+  													RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
+  													session.setAttribute("confirme", "logue-se");
+  													rd.forward(request,response);
+  												}
+  													
   									%></button>
 					
   					<div class="dropdown-content">

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt_BR">
+<jsp:include page="canceladorConfirme.jsp" />
 <head>
 
   <meta charset="utf-8">
@@ -80,23 +80,23 @@
 		<!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container">
-      <img src="img/newlogo3.png"><a class="navbar-brand" href="#">&nbsp CORAÃ‡Ã•ES</a>
+      <img src="img/newlogo3.png"><a class="navbar-brand" href="#">&nbsp CORAÇÕES</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
 		<li class="nav-item">
-            <a class="nav-link" href="index.jsp">InÃ­cio</a>
+            <a class="nav-link" href="index.jsp">Início</a>
          </li>
 		<li class="nav-item">
-            <a class="nav-link" href="sobre.html">Sobre nÃ³s</a>
+            <a class="nav-link" href="sobre.jsp">Sobre nós</a>
          </li>
 		<li class="nav-item">
-            <a class="nav-link" href="contato.html">Contato</a>
+            <a class="nav-link" href="contato.jsp">Contato</a>
           </li>
 		  <li class="nav-item">
-            <a class="nav-link" href="cadConsulta.html">Agenda</a>
+            <a class="nav-link" href="agenda.jsp">Agenda</a>
           </li>
           <li>
           <div class="dropdown">
@@ -109,7 +109,15 @@
         </div>
       </li>
           <li class="nav-item">
-            <a class="nav-link" href="login.jsp">Entrar</a>
+            <%
+          		if (session.getAttribute("usuario") != null) {
+          			out.write("");
+          			
+          			out.write("<a class=\"nav-link\">Bem vindo: " + session.getAttribute("usuario")+"</a>");
+          		} else {
+          			out.write("<a class=\"nav-link\" href=\"login.jsp\">Entrar</a>");	
+          		}
+          	%>
           </li>
         </ul>
       </div>
@@ -122,7 +130,7 @@
 		 <div class="row">
 	 	  	<div id="preto" class="col-sm-12">
 			 	
-				<!-- InÃ­cio da Ã¡rea editÃ¡vel-->
+				<!-- Início da área editável-->
 			 	<h1 class="titulo">Fale conosco</h1>
 			 	<hr/>
 
@@ -142,7 +150,7 @@
 			 		Motivo:
 			 		<select>
 			 			<option selected>----Selecione----</option>
-			 			<option value="reclamacao">ReclamaÃ§Ã£o</option>
+			 			<option value="reclamacao">Reclamação</option>
 			 			<option value="elogio">Elogio</option>
 			 			<option value="contato">Contato</option>
 			 		</select>
@@ -158,7 +166,7 @@
 					<button type="reset">Limpar Dados</button>
 					
 			 	</form>
-				<!-- Fim da Ã¡rea editÃ¡vel-->				
+				<!-- Fim da área editável-->				
 				
 			 </div>
 		 </div>
@@ -167,7 +175,7 @@
 				  <div class="row align-items-center">
 					<div class="col-lg-6 order-lg-2">
 					  <div class="p-5">
-						<a href="https://www.google.com.br/maps/place/Universidade+Cidade+de+SÃ£o+Paulo+-+UNICID+-+Bloco+Alfa/@-23.5356673,-46.5601771,17z/data=!4m5!3m4!1s0x94ce5ef14dffb3d9:0x8d65b82df4aab92c!8m2!3d-23.5359197!4d-46.5596777" target="_blank">
+						<a href="https://www.google.com.br/maps/place/Universidade+Cidade+de+São+Paulo+-+UNICID+-+Bloco+Alfa/@-23.5356673,-46.5601771,17z/data=!4m5!3m4!1s0x94ce5ef14dffb3d9:0x8d65b82df4aab92c!8m2!3d-23.5359197!4d-46.5596777" target="_blank">
 							<img class="img-fluid rounded-circle" src="img/localizacao.png" alt=""></a>
 					  </div>
 					</div>
