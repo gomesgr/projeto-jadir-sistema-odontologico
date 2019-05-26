@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Ãrea do cliente</title>
+  <title>Área do cliente</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -72,17 +72,17 @@
         <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container">
-      <img src="img/newlogo3.png"><a class="navbar-brand" href="#">&nbsp CORAÃ‡Ã•ES</a>
+      <img src="img/newlogo3.png"><a class="navbar-brand" href="#">&nbsp CORAÇÕES</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link" href="index.html">InÃ­cio</a>
+            <a class="nav-link" href="index.jsp">Início</a>
          </li>
         <li class="nav-item">
-            <a class="nav-link" href="sobre.html">Sobre nÃ³s</a>
+            <a class="nav-link" href="sobre.html">Sobre nós</a>
          </li>
         <li class="nav-item">
             <a class="nav-link" href="contato.html">Contato</a>
@@ -92,10 +92,10 @@
           </li>
          <!-- <li class="nav-item"><a class="nav-link">Nome do cliente-->
                 <div class="dropdown">
-                    <button class="dropbtn">Nome do cliente</button>
+                    <button class="dropbtn"><%out.write(""+session.getAttribute("usuario"));%></button>
                     
                     <div class="dropdown-content">
-                        <a href="cadConsulta.html">Agendar Consulta</a>
+                        <a href="cadConsulta.jsp">Agendar Consulta</a>
                         <a href="index.html">Sair</a>
                     </div>
                     
@@ -111,14 +111,14 @@
          <div class="row">
             <div id="preto" class="col-sm-12">
                 
-                <!-- InÃ­cio da Ã¡rea editÃ¡vel-->
+                <!-- Início da área editável-->
                 <center>
                 <br><br>
                 <form>
                 <img src="img/calendario.jpg" width="800px">
                 </form>
                 </center>
-                <!-- Fim da Ã¡rea editÃ¡vel-->                
+                <!-- Fim da área editável-->                
                 
              </div>
          </div>

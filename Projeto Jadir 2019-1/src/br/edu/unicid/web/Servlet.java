@@ -37,7 +37,6 @@ public class Servlet extends HttpServlet {
 		processRequest(request, response);
 	}
 
-	// TODO salvar cliente
 	protected void processRequest(HttpServletRequest request, 
 			HttpServletResponse response) throws ServletException, IOException {
 		String pageId = request.getParameter("pageId");

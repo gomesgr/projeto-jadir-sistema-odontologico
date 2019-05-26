@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Entrar</title>
+  <title>Agendar Consulta</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -25,16 +25,52 @@
 	
 	<!--Icones de Redes Sociais-->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-   <style type="text/css">
-   	form {
+	 <script>
+       $(document).ready(function() {	
+           	
+            //CADASTRA NOVO EVENTO
+            $('#novo_evento').submit(function(){
+                //serialize() junta todos os dados do form e deixa pronto pra ser enviado pelo ajax
+                var dados = jQuery(this).serialize();
+                $.ajax({
+                    type: "POST",
+                    url: "cadastrar_evento.php",
+                    data: dados,
+                    success: function(data)
+                    {   
+                        if(data == "1"){
+                            alert("Cadastrado com sucesso! ");
+                            //atualiza a página!
+                            location.reload();
+                        }else{
+                            alert("Houve algum problema.. ");
+                        }
+                    }
+                });                
+                return false;
+            });	
+	   }); 
+                
+    </script>
+
+	<style type="text/css">
+		form {
     		border: 3px solid #ccc;
     		border-color: black;
-    		width: 450;
+    		width: 650;
     		margin: auto;
     		padding: 1em;
     		border-radius: 10px;
 		}
-		.dropbtn {
+		div{
+			text-align: left;
+		}
+		 #calendario{
+            position: relative;
+            width: 70%;
+            margin: 0px auto;
+        }
+        .dropbtn {
 		background-color:#4C4C4C;
   		 color: #A6A6A6;
   		 padding: 15px;
@@ -42,7 +78,7 @@
 		 padding-left:5px; 
 	 	 font-size: 16px;
   		 border: none;
-		 width: 100%;
+		 width: 90%;
     	 height: 36px !important;
 		}
 		
@@ -68,7 +104,7 @@
 		.dropdown-content a:hover {background-color: #ddd;}
 		.dropdown:hover .dropdown-content {display: block;}
 		.dropdown:hover .dropbtn {background-color: #4C4C4C;}
-   </style>
+	</style>
 </head>
 
 <body>
@@ -79,17 +115,17 @@
 		<!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container">
-      <img src="img/newlogo3.png"><a class="navbar-brand" href="#">&nbsp CORAÃ‡Ã•ES</a>
+      <img src="img/newlogo3.png"><a class="navbar-brand" href="#">&nbsp CORAÇÕES</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
 		<li class="nav-item">
-            <a class="nav-link" href="index.html">InÃ­cio</a>
+            <a class="nav-link" href="index.jsp">Início</a>
          </li>
 		<li class="nav-item">
-            <a class="nav-link" href="sobre.html">Sobre nÃ³s</a>
+            <a class="nav-link" href="sobre.html">Sobre nós</a>
          </li>
 		<li class="nav-item">
             <a class="nav-link" href="contato.html">Contato</a>
@@ -97,22 +133,30 @@
 		  <li class="nav-item">
             <a class="nav-link" href="cadConsulta.html">Agenda</a>
           </li>
-          <li>
           <div class="dropdown">
-            <button class="dropbtn">Cadastre-se</button>
-          
-            <div class="dropdown-content">
-              <a href="cadastroUsuario.jsp">Cliente</a>
-              <a href="cadDentista.jsp">Dentista</a>
-          </div>
-        </div>
-      </li>
-          <li class="nav-item">
-            <a class="nav-link" href="login.jsp">Entrar</a>
-          </li>
-        </ul>
+  					<button class="dropbtn"><% if (session.getAttribute("usuario") != null) 
+  												out.write("Bem vindo " + session.getAttribute("usuario")); 
+  												
+  												else {
+  													out.write("Cliente");
+  													RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+  													session.setAttribute("confirme", "Logue-se");
+  													rd.forward(request, response);
+  												}
+  													
+  									%></button>
+					
+  					<div class="dropdown-content">
+    					<a href="cadConsulta.jsp">Agendar Consulta</a>
+    					<a href="index.html">Sair</a>
+					</div>
+					
       </div>
+		 <!-- <li class="nav-item"><a class="nav-link">Nome do cliente-->
+			  	
+		  </ul>
     </div>
+		</div>
   </nav>
 		</div>
 	</div>
@@ -121,43 +165,43 @@
 		 <div class="row">
 	 	  	<div id="preto" class="col-sm-12">
 			 	
-				<!-- InÃ­cio da Ã¡rea editÃ¡vel-->
-			 	<h2 class="titulo">Entrar</h2>
-		<center>
+				<!-- Início da área editável-->
+				<br><br>
+				 <div id='calendario'>
 				<form method="get" action=""><!-- colocar aqui o nome da pagina -->
+					<center><h1>Agende sua Consulta</h1></center><br>
 
+					Tipo de consulta: <input type="text" name="nome" required/>	&nbsp;	&nbsp;     
+            	
+            		Data da Consulta: <input type="date" name="data" required/><br/><br/>            
 			
-			<font size="4" face="Sans-serif">
-			Login:<br/>
-			<input type="text" name="loginCli" placeholder="UsuÃ¡rio" maxlength="30" required/>
-			<hr/>
-			
-			Senha:<br>
-			<input type="text" name="senhaCli" maxlength="30" placeholder="Senha" required/>
-			<br/>
-			<a href="recupSenha.html"><font size="2">Esqueceu sua senha?</font></a><br/>
-			<a href="cadastroUsuario.html"><font size="2">NÃ£o possui login? Cadastre-se</font></a><br/>
+			Horarios disponiveis:
+			<select>
+				<option value="h1">horario 1</option>
+				<option value="h2">horario 2</option>
+				<option value="h3">horario 3</option>
+			</select>
+			<hr/>	
+			Histórico e Observações:<br/>
+				<textarea id="Histórico" name="historicoDoença" rows="10" cols="90">
+				</textarea>
 
-			<hr/>
-
-		
-				<input type="submit" value="Logar"/>
+			<center>
+				<input type="submit" value="Agendar"/>
 				<input type="reset" value="Limpar"/>
-			
-		</font>
-		</form>
+				<a href="index.html"><button>Pagina inicial</button></a>
 			</center>
-				<!-- Fim da Ã¡rea editÃ¡vel-->				
+		</form>
+				</div>
+				<!-- Fim da área editável-->				
 				
 			 </div>
 		 </div>
-				 
-				 
 				 </div>
 		 	
 		 <div class="row">
 			 <div id="verde" class="col-sm-12"></div>
-	</div>
+		 </div>
 	  
 	 <footer class="py-5 bg-black">
     
@@ -180,6 +224,7 @@
 	  
 	  
 
+
     
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -187,24 +232,6 @@
 
   </body>
 </html>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 
@@ -218,3 +245,4 @@
 </body>
 
 </html>
+

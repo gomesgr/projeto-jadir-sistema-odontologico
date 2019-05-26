@@ -56,7 +56,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
 		<li class="nav-item">
-            <a class="nav-link" href="index.html">Início</a>
+            <a class="nav-link" href="index.jsp">Início</a>
          </li>
 		<li class="nav-item">
             <a class="nav-link" href="sobre.html">Sobre nós</a>
@@ -65,13 +65,13 @@
             <a class="nav-link" href="contato.html">Contato</a>
           </li>
 		  <li class="nav-item">
-            <a class="nav-link" href="cadConsulta.html">Agenda</a>
+            <a class="nav-link" href="cadConsulta.jsp">Agenda</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="cadastroUsuario.jsp">Cadastre-se</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="login.html">Entrar</a>
+            <a class="nav-link" href="login.jsp">Entrar</a>
           </li>
         </ul>
       </div>
@@ -85,9 +85,12 @@
 	 	  	<div id="preto" class="col-sm-12">
 			 	
 				<!-- Início da área editável-->
-			 	<h2 class="titulo">Entrar</h2>
+			 	<h2 class="titulo">Entrar <% 
+            	if (session.getAttribute("confirme") != null)
+            		out.write(""+session.getAttribute("confirme")); 
+            	%></h2>
 		<center>
-				<form method="get" action=""><!-- colocar aqui o nome da pagina -->
+				<form method="post" action="LoginServlet"><!-- colocar aqui o nome da pagina -->
 
 				<input type="hidden" name="pageId" value="loginPage"/>
 			<font size="4" face="Sans-serif">

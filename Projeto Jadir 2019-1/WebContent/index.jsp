@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<jsp:include page="canceladorConfirme.jsp" />
+
 <head>
 
   <meta charset="utf-8">
@@ -8,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>InÃ­cio</title>
+  <title>Início</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -21,7 +23,42 @@
   <link href="css/one-page-wonder.min.css" rel="stylesheet">
    <!--Icones de Redes Sociais-->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	
+	<style type="text/css">
+   .dropbtn {
+    background-color:#4C4C4C;
+       color: #A6A6A6;
+       padding: 15px;
+       padding-top: 0px;
+     padding-left:5px; 
+     font-size: 16px;
+       border: none;
+     width: 100%;
+       height: 36px !important;
+    }
+    
+    .dropdown {
+     position: relative;
+     display: inline-block;
+    }
+    
+    .dropdown-content {
+     display: none;
+      position: absolute;
+     background-color: #f1f1f1;
+     min-width: 169px;
+     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+     z-index: 1;
+    } 
+    .dropdown-content a {
+     color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    .dropdown-content a:hover {background-color: #ddd;}
+    .dropdown:hover .dropdown-content {display: block;}
+    .dropdown:hover .dropbtn {background-color: #4C4C4C;} 
+  </style>
 </head>
 
 <body>
@@ -29,30 +66,39 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container">
-      <img src="img/newlogo3.png"><a class="navbar-brand" href="#">&nbsp CORAÃ‡Ã•ES</a>
+      <img src="img/newlogo3.png"><a class="navbar-brand" href="#">CORAÇÕES</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
 		<li class="nav-item">
-            <a class="nav-link" href="#">InÃ­cio</a>
+            <a class="nav-link" href="index.html">Início</a>
          </li>
 		<li class="nav-item">
-            <a class="nav-link" href="#">Sobre nÃ³s</a>
+            <a class="nav-link" href="sobre.html">Sobre nós</a>
          </li>
 		<li class="nav-item">
-            <a class="nav-link" href="#">Contato</a>
+            <a class="nav-link" href="contato.html">Contato</a>
           </li>
 		  <li class="nav-item">
-            <a class="nav-link" href="#">Agenda</a>
+            <a class="nav-link" href="cadConsulta.jsp">Agenda</a>
           </li>
+          <li>
+          <div class="dropdown ">
+            <button class="dropbtn">Cadastre-se</button>
+          
+            <div class="dropdown-content">
+              <a href="cadastroUsuario.jsp">Cliente</a>
+              <a href="cadDentista.jsp">Dentista</a>
+          </div>
+        </div>
+      </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Cadastre-se</a>
+            <a class="nav-link" href="login.jsp">Entrar</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Entrar</a>
-          </li>
+
+
         </ul>
       </div>
     </div>
@@ -75,7 +121,7 @@
       <div class="carousel-item active">
         <img src="img/banner1d.jpg" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h2>OS MELHORES ESPECIALISTAS ESTÃƒO AQUI</h2>
+          <h2>OS MELHORES ESPECIALISTAS ESTÃO AQUI</h2>
           <p></p>
         </div>
       </div>
@@ -89,7 +135,7 @@
       <div class="carousel-item">
         <img src="img/banner2.jpg" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h2>UM SORRISO BONITO FAZ A DIFERÃŠNÃ‡A</h2>
+          <h2>UM SORRISO BONITO FAZ A DIFERENÇA</h2>
           <p></p>
         </div>
       </div>

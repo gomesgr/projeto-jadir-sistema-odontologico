@@ -38,7 +38,6 @@
 </head>
 
 <body>
-
 	
 	<div class="container fluid">
 		<div id="vermelho" class="col-sm-12">
@@ -52,7 +51,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
 		<li class="nav-item">
-            <a class="nav-link" href="index.html">Início</a>
+            <a class="nav-link" href="index.jsp">Início</a>
          </li>
 		<li class="nav-item">
             <a class="nav-link" href="sobre.html">Sobre nós</a>
