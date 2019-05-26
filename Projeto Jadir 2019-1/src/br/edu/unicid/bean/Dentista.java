@@ -9,6 +9,11 @@ public class Dentista
 	private String login;
 	private String senha;
 	
+	public Dentista()
+	{
+		
+	}
+	
 	public Dentista(String nome, Integer cro, String telefone, String login, String senha) {
 		this.nome = nome;
 		this.cro = cro;

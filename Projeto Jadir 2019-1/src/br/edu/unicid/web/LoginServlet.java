@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import br.edu.unicid.bean.Dentista;
 import br.edu.unicid.bean.Paciente;
+import br.edu.unicid.dao.DentistaDAO;
 import br.edu.unicid.dao.PacienteDAO;
 
 @WebServlet("/LoginServlet")
@@ -32,32 +34,67 @@ public class LoginServlet extends HttpServlet {
 
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		Integer tipo = Integer.parseInt(request.getParameter("tipoLogin"));
 		Paciente paciente;
+		Dentista dentista;
 		PacienteDAO pdao;
+		DentistaDAO ddao;
 		
-		try
+		switch(tipo)
 		{
-			paciente = new Paciente();
-			paciente.setLogin(request.getParameter("login"));
-			paciente.setSenha(request.getParameter("senha"));
-			pdao = new PacienteDAO();
+			case 1:		
+				try
+				{
+					paciente = new Paciente();
+					paciente.setLogin(request.getParameter("login"));
+					paciente.setSenha(request.getParameter("senha"));
+					pdao = new PacienteDAO();
+					
+					if(pdao.consultarLogin(paciente.getLogin(), paciente.getSenha()))
+					{
+						HttpSession session = request.getSession(true);
+						session.setAttribute("paciente", paciente);
+						response.sendRedirect("areaCli.jsp");
+					}
+					
+					else
+					{
+						// No page for this yet...
+					}
+				}
+				
+				catch(Exception e)
+				{
+					e.printStackTrace();
+				}
+				
+				break;
 			
-			if(pdao.consultarLogin(paciente.getLogin(), paciente.getSenha()))
-			{
-				HttpSession session = request.getSession(true);
-				session.setAttribute("paciente", paciente);
-				response.sendRedirect("areaCli.jsp");
-			}
-			
-			else
-			{
-				// No page for this yet...
-			}
-		}
-		
-		catch(Exception e)
-		{
-			e.printStackTrace();
+			case 2:
+				try
+				{
+					dentista = new Dentista();
+					dentista.setLogin(request.getParameter("login"));
+					dentista.setSenha(request.getParameter("senha"));
+					ddao = new DentistaDAO();
+					
+					if(ddao.consultarLogin(dentista.getLogin(), dentista.getSenha()))
+					{
+						HttpSession session = request.getSession(true);
+						session.setAttribute("dentista", dentista);
+						response.sendRedirect("paineldeAcesso.htm");
+					}
+					
+					else
+					{
+						// No page for this yet...
+					}
+				}
+				
+				catch(Exception e)
+				{
+					e.printStackTrace();
+				}
 		}
 	}
 

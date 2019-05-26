@@ -81,7 +81,7 @@ public class Servlet extends HttpServlet {
 					e.printStackTrace();
 				}
 				break;
-			case "cadastroDentista":
+			case "cadDentista":
 				ddao = new DentistaDAO();
 				System.out.println(ddao.salvar(new Dentista(
 							request.getParameter("nomeCli"),

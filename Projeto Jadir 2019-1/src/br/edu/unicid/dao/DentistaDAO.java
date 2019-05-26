@@ -136,4 +136,33 @@ public class DentistaDAO {
 		
 		return null;
 	}
+	
+	public Boolean consultarLogin(String login, String senha)
+	{
+		try
+		{
+			conn = ConnectionFactory.getConnection();
+			ps = conn.prepareStatement("SELECT login, senha FROM dentista WHERE login = ?, senha = ?");
+			ps.setString(1, login);
+			ps.setString(2, senha);
+			ResultSet rs = ps.executeQuery();
+			
+			if(rs != null)
+			{
+				return true;
+			}
+			
+			else
+			{
+				return false;
+			}
+		}
+		
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
 }
