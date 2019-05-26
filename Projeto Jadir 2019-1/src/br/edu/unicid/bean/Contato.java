@@ -1,27 +1,14 @@
 package br.edu.unicid.bean;
 
 public class Contato {
-    public enum Motivo{
-        RECLAMACAO("Reclamação"), ELOGIO("Elogio"), CONTATO("Contato");
-
-        private String motivo;
-
-        private Motivo(String motivo) {
-            this.motivo = motivo;
-        }
-
-        public String getMotivo() {
-            return motivo;
-        }
-    }
-
+	private Integer id;
     private String nome;
     private String email;
     private String assunto;
-    private Motivo motivo;
+    private String motivo;
     private String mensagem;
 
-	public Contato(String nome, String email, String assunto, Motivo motivo, 
+	public Contato(String nome, String email, String assunto, String motivo, 
 			String mensagem) {
 		this.nome = nome;
 		this.email = email;
@@ -30,6 +17,16 @@ public class Contato {
 		this.mensagem = mensagem;
 	}
 
+	public Integer getId()
+	{
+		return id;
+	}
+	
+	public void setId(Integer id)
+	{
+		this.id = id;
+	}
+	
 	public String getNome() {
 		return this.nome;
 	}
@@ -54,11 +51,11 @@ public class Contato {
 		this.assunto = assunto;
 	}
 
-	public Motivo getMotivo() {
+	public String getMotivo() {
 		return this.motivo;
 	}
 
-	public void setMotivo(Motivo motivo) {
+	public void setMotivo(String motivo) {
 		this.motivo = motivo;
 	}
 
