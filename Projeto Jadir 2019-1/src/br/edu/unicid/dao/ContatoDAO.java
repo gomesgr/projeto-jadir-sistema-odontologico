@@ -20,7 +20,12 @@ public class ContatoDAO {
 	public int salvar(Contato contato) {
 		try {
 			conn = ConnectionFactory.getConnection();
-			ps = conn.prepareStatement("INSERT INTO contato VALUES ()"); 
+			ps = conn.prepareStatement("INSERT INTO contato (nome, email, assunto, motivo, mensagem) VALUES (?,?,?,?,?)"); 
+			ps.setString(1, contato.getNome());
+			ps.setString(2, contato.getEmail());
+			ps.setString(3, contato.getAssunto());
+			ps.setString(4, contato.getMotivo());
+			ps.setString(5, contato.getMensagem());
 			int ret = ps.executeUpdate();
 			ConnectionFactory.close(conn, ps);
 			return ret;
@@ -36,6 +41,7 @@ public class ContatoDAO {
 		try {
 			conn = ConnectionFactory.getConnection();
 			ps = conn.prepareStatement("DELETE FROM contato WHERE id = ?");
+			ps.setInt(1, contato.getId());
 			int ret = ps.executeUpdate();
 			ConnectionFactory.close(conn, ps);
 			return ret;
@@ -50,7 +56,12 @@ public class ContatoDAO {
 	public int alterar (Contato contato) {
 		try {
 			conn = ConnectionFactory.getConnection();
-			ps = conn.prepareStatement("UPDATE contato SET");
+			ps = conn.prepareStatement("UPDATE contato SET nome = ?, email = ?, assunto = ?, motivo = ?, mensagem = ?");
+			ps.setString(1, contato.getNome());
+			ps.setString(2, contato.getEmail());
+			ps.setString(3, contato.getAssunto());
+			ps.setString(4, contato.getMotivo());
+			ps.setString(5, contato.getMensagem());
 			int ret = ps.executeUpdate();
 			ConnectionFactory.close(conn, ps);
 			return ret;
@@ -72,7 +83,13 @@ public class ContatoDAO {
 			// TODO Completar mais tarde
 			while (rs.next()) {
 				contatos.add(
-					new Contato()
+					new Contato(
+								rs.getString("nome"),
+								rs.getString("email"),
+								rs.getString("assunto"),
+								rs.getString("motivo"),
+								rs.getString("mensagem")
+							)
 				);
 			}
 			ConnectionFactory.close(conn, ps, rs);
@@ -91,7 +108,12 @@ public class ContatoDAO {
 			ps = conn.prepareStatement("SELECT * FROM contato WHERE id = ?");
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
-			Contato c = new Contato();
+			Contato c = new Contato(rs.getString("nome"),
+									rs.getString("email"),
+									rs.getString("assunto"),
+									rs.getString("motivo"),
+									rs.getString("mensagem")
+							);
 			ConnectionFactory.close(conn, ps, rs);
 			return c;
 		} catch (SQLException | ClassNotFoundException e) {
