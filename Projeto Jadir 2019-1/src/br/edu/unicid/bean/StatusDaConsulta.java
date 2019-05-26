@@ -1,5 +1,6 @@
 package br.edu.unicid.bean;
 
+@Deprecated
 public enum StatusDaConsulta {
 	CANCELADA("Cancelada"), CONFIRMADA("Confirmada");
 	String statusConsulta;
