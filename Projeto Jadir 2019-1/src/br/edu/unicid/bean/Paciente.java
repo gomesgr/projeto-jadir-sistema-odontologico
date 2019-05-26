@@ -8,65 +8,62 @@ public class Paciente
 	private Integer id;
 	private String nome;
 	private String cpf;
+	private String sexo;
+	private String rg;
+	private String uf;
 	private Date dtNasc;
 	private String telefone;
-	private Sexo sexo;
-	private String email;
-	private String cidade;
-	private String uf;
 	private Endereco end;
+	private String cidade;
 	private String bairro;
-	private String histDoencas;
+	private String email;
 	private String login;
 	private String senha;
 	private Boolean sms;
 
-	public Paciente(String nome, String cpf, Date dtNasc, String telefone, 
-			Sexo sexo, String email, String cidade,	String uf, Endereco end, 
-			String bairro, String histDoencas, String login, String senha, 
-			Boolean sms) {
+	public Paciente(String nome, String cpf, String sexo, String rg, String uf, Date dtNasc, String telefone,
+			Endereco end, String cidade, String bairro, String email, String login, String senha, Boolean sms) {
 		this.nome = nome;
 		this.cpf = cpf;
+		this.sexo = sexo;
+		this.rg = rg;
+		this.uf = uf;
 		this.dtNasc = dtNasc;
 		this.telefone = telefone;
-		this.sexo = sexo;
-		this.email = email;
-		this.cidade = cidade;
-		this.uf = uf;
 		this.end = end;
+		this.cidade = cidade;
 		this.bairro = bairro;
-		this.histDoencas = histDoencas;
+		this.email = email;
 		this.login = login;
 		this.senha = senha;
 		this.sms = sms;
 	}
 	
-	public Paciente(Integer id, String nome, String cpf, Date dtNasc, 
-			String telefone, Sexo sexo, String email, String cidade, String uf, 
-			Endereco end, String bairro, String histDoencas, String login, 
-			String senha, Boolean sms) {
+	public Paciente(Integer id, String nome, String cpf, String sexo, String rg, String uf, Date dtNasc,
+			String telefone, Endereco end, String cidade, String bairro, String email, String login, String senha,
+			Boolean sms) {
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
+		this.sexo = sexo;
+		this.rg = rg;
+		this.uf = uf;
 		this.dtNasc = dtNasc;
 		this.telefone = telefone;
-		this.sexo = sexo;
-		this.email = email;
-		this.cidade = cidade;
-		this.uf = uf;
 		this.end = end;
+		this.cidade = cidade;
 		this.bairro = bairro;
-		this.histDoencas = histDoencas;
+		this.email = email;
 		this.login = login;
 		this.senha = senha;
 		this.sms = sms;
 	}
 
-	public Sexo getSexo() {
+	public String getSexo() {
 		return sexo;
 	}
 
-	public void setSexo(Sexo sexo) {
+	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
 
@@ -150,12 +147,14 @@ public class Paciente
 		this.bairro = bairro;
 	}
 
-	public String getHistDoencas() {
-		return histDoencas;
+	
+
+	public String getRg() {
+		return rg;
 	}
 
-	public void setHistDoencas(String histDoencas) {
-		this.histDoencas = histDoencas;
+	public void setRg(String rg) {
+		this.rg = rg;
 	}
 
 	public String getLogin() {
@@ -174,8 +173,10 @@ public class Paciente
 		this.senha = senha;
 	}
 
-	public Boolean getSms() {
-		return sms;
+	public int getSms() {
+		if (sms == true)
+			return 1;
+		return 0;
 	}
 
 	public void setSms(Boolean sms) {

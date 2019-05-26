@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 
 import br.edu.unicid.bean.Dentista;
 import br.edu.unicid.util.ConnectionFactory;
+import br.edu.unicid.util.ManipuladorDeString;
 
 public class DentistaDAO {
 	private Connection conn;
@@ -20,18 +21,31 @@ public class DentistaDAO {
 	public int salvar(Dentista dentista) {
 		try {
 			conn = ConnectionFactory.getConnection();
-			ps = conn.prepareStatement("INSERT INTO dentista (Nome, CRO, Telefone) VALUES (?,?,?)"); 
-			// code here 
+			ps = conn.prepareStatement("INSERT INTO dentista (nome,cro,"
+					+ "telefone,login,senha) VALUES (?,?,?,?,?)"); 
+			 
+			ps.setString(1, dentista.getNome());
+			ps.setInt(2, dentista.getCro());
+			ps.setString(3, ManipuladorDeString.transformarTelefone(dentista
+					.getTelefone()));
+			ps.setString(4, dentista.getLogin());
+			ps.setString(5, dentista.getSenha());
+			ps = conn.prepareStatement("INSERT INTO dentista (nome, cro, "
+					+ "telefone, login, senha) VALUES (?,?,?,?,?)"); 
 			ps.setString(1, dentista.getNome());
 			ps.setInt(2, dentista.getCro());
 			ps.setString(3, dentista.getTelefone());
+			ps.setString(4, dentista.getLogin());
+			ps.setString(5, dentista.getSenha());
 			int ret = ps.executeUpdate();
 			ConnectionFactory.close(conn, ps);
 			return ret;
 		} catch (SQLException | ClassNotFoundException e) {
+			e.printStackTrace();
 			JOptionPane.showMessageDialog(null, "Erro ao salvar o dentista: " +
-					e.getLocalizedMessage() , "Erro de InclusÃ£o", 
+					e.getLocalizedMessage() , "Erro de Inclusao", 
 					JOptionPane.ERROR_MESSAGE);
+
 		}
 		return 0;
 	}
@@ -40,13 +54,14 @@ public class DentistaDAO {
 		try {
 			conn = ConnectionFactory.getConnection();
 			ps = conn.prepareStatement("DELETE FROM dentista WHERE id = ?");
+			
+			ps.setInt(1, dentista.getId());
+			
 			int ret = ps.executeUpdate();
 			ConnectionFactory.close(conn, ps);
 			return ret;
 		} catch (SQLException | ClassNotFoundException e) {
-			JOptionPane.showMessageDialog(null, "Erro ao remover o dentista: " + 
-					e.getLocalizedMessage() , "Erro de Remoção", 
-					JOptionPane.ERROR_MESSAGE);
+			e.printStackTrace();
 		}
 		return 0;
 	}
@@ -54,14 +69,22 @@ public class DentistaDAO {
 	public int alterar (Dentista dentista) {
 		try {
 			conn = ConnectionFactory.getConnection();
-			ps = conn.prepareStatement("UPDATE dentista SET");
+			ps = conn.prepareStatement("UPDATE dentista SET nome=?, cro=?,"
+					+ "telefone=?, login=?, senha=? WHERE id=?");
+			
+			ps.setString(1, dentista.getNome());
+			ps.setInt(2, dentista.getCro());
+			ps.setString(3, ManipuladorDeString.transformarTelefone(dentista
+					.getTelefone()));
+			ps.setString(4, dentista.getLogin());
+			ps.setString(5, dentista.getSenha());
+			ps.setInt(6, dentista.getId());
+			
 			int ret = ps.executeUpdate();
 			ConnectionFactory.close(conn, ps);
 			return ret;
 		} catch (SQLException | ClassNotFoundException e) {
-			JOptionPane.showMessageDialog(null, "Erro ao alterar o dentista: " +
-					e.getLocalizedMessage() , "Erro de Alteração", 
-					JOptionPane.ERROR_MESSAGE);
+			e.printStackTrace();
 		}
 		return 0;
 	}
@@ -73,34 +96,38 @@ public class DentistaDAO {
 			rs = ps.executeQuery(); 
 			
 			List<Dentista> dentistas = new LinkedList<>();
-			// code here
 			while (rs.next()) {
 				dentistas.add(
-					new Dentista(
-							rs.getInt("id"),
-							rs.getString("nome"),
+					new Dentista(rs.getInt("id"), rs.getString("nome"),
 							rs.getInt("cro"),
-							rs.getString("telefone"))
+							rs.getString("telefone"),
+							rs.getString("login"),
+							rs.getString("senha")
+					)
 				);
 			}
 			ConnectionFactory.close(conn, ps, rs);
 			return dentistas;
 		} catch (SQLException | ClassNotFoundException e) {
-			JOptionPane.showMessageDialog(null, "Erro ao listar os dentistas: " 
-					+ e.getLocalizedMessage() , "Erro de Listagem 1", 
-					JOptionPane.ERROR_MESSAGE);
+			e.printStackTrace();
 		}
 		return null;
 	}
-	// TODO concluir implementacao mais tarde
+	
 	public Dentista listarUnico(Integer id) {
 		try {
 			conn = ConnectionFactory.getConnection();
 			ps = conn.prepareStatement("SELECT * FROM dentista WHERE id = ?");
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
-			ps.executeUpdate();
+			Dentista d = new Dentista(rs.getInt("id"), rs.getString("nome"),
+					rs.getInt("cro"),
+					rs.getString("telefone"),
+					rs.getString("login"),
+					rs.getString("senha")
+			);
 			ConnectionFactory.close(conn, ps, rs);
+			return d;
 		} catch (SQLException | ClassNotFoundException e) {
 			JOptionPane.showMessageDialog(null, "Erro ao listar o dentista: " +
 					e.getLocalizedMessage() , "Erro de Listagem 2", 

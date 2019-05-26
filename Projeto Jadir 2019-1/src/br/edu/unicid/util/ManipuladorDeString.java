@@ -1,5 +1,7 @@
 package br.edu.unicid.util;
 
+import java.sql.Date;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 public class ManipuladorDeString {
@@ -44,9 +46,34 @@ public class ManipuladorDeString {
 		return n;
 	}
 	
-	public static String returnDateFromString(String date) 
-			throws IllegalArgumentException {
+	public static Date returnDateFromString(String date) 
+			throws IllegalArgumentException, ParseException {
 		SimpleDateFormat sd = new SimpleDateFormat("dd/MM/yyyy");
-		return sd.format(date);
+		java.util.Date normalDate = sd.parse(date);
+		return new Date(normalDate.getTime());
+	}
+	
+	public static String transformarTelefone(String telefone) {
+		char[] vec = telefone.toCharArray();
+		String n = "";
+		n += "(";
+
+		for (int i = 0; i < telefone.length(); i++) {
+			switch (i) {
+				case 2:
+					n += ") " + vec[i];
+					break;
+				case 3:
+					n += " " + vec[i];
+					break;
+				case 7:
+					n += "-" + vec[i];
+					break;
+				default:
+				n += vec[i];
+				break;
+			}
+		}
+		return n;
 	}
 }

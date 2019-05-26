@@ -10,8 +10,8 @@ public class ConnectionFactory {
 	public static Connection getConnection() throws SQLException, ClassNotFoundException {
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		
-		String url = "jdbc:mysql://localhost:3306";
-		String usr = "admin";
+		String url = "jdbc:mysql://localhost:3306/clinicaodonto?useTimezone=true&serverTimezone=UTC";
+		String usr = "root";
 		String pass = "";
 		
 		// Retorna a conexao com MYSQL de acordo com url, usuario e sua senha
