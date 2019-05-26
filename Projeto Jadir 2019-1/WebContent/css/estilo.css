@@ -67,7 +67,18 @@
 /*Conteúdo da página*/
 
 
+.menu_acesso {
+        margin: 0px 0px 0px 170px;
+        }    
 
+.card {
+    margin: 30px 0px 0px 440px;
+}
+
+
+img.rounded {
+    padding: 0px 0px 0px 20px;
+}
 
 
 
