@@ -2,6 +2,7 @@ package br.edu.unicid.web;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -10,9 +11,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.edu.unicid.bean.Dentista;
 import br.edu.unicid.bean.Endereco;
+import br.edu.unicid.bean.OdontogramRow;
 import br.edu.unicid.bean.Paciente;
 import br.edu.unicid.dao.DentistaDAO;
 import br.edu.unicid.dao.PacienteDAO;
@@ -23,6 +26,7 @@ import br.edu.unicid.util.ManipuladorDeString;
 @WebServlet("/Servlet")
 public class Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	List<OdontogramRow> table = new ArrayList<OdontogramRow>();
 
 	public Servlet() {
 	}
@@ -46,7 +50,33 @@ public class Servlet extends HttpServlet {
 		PacienteDAO pdao;
 		DentistaDAO ddao;
 		List<Paciente> pacientes;
+
 		switch (pageId) {
+			case "removerElementoOdontograma":
+				int index = Integer.parseInt(request.getParameter("index"));
+				table.remove(index);
+				
+				HttpSession session = request.getSession();
+				session.setAttribute("table", table);
+				RequestDispatcher rdo = request.getRequestDispatcher("odontograma.jsp");
+				rd.forward(request, response);
+				
+				break;
+				
+			case "adicionarElementoOdontograma":
+				String tooth = (String) request.getParameter("dente");
+				String procedure = (String) request.getParameter("procedimento");
+				Double price = Double.parseDouble(request.getParameter("preco"));
+
+				table.add(new OdontogramRow(tooth, procedure, price));
+				
+				HttpSession session2 = request.getSession();
+				session2.setAttribute("table", table);
+				RequestDispatcher rdo2 = request.getRequestDispatcher("odontograma.jsp");
+				rd.forward(request, response);
+				
+				break;
+			
 			case "cadastroUsuario":
 				try {
 					Endereco end = new Endereco(request.getParameter("endCli"),
