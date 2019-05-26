@@ -86,6 +86,8 @@ public class Servlet extends HttpServlet {
 						)
 					)
 				+ " linha(s) alterada(s)");	
+		
+				break;
 		}
 	}
 
