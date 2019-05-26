@@ -40,7 +40,7 @@ public class ContatoDAO {
 	public int remover (Contato contato) {
 		try {
 			conn = ConnectionFactory.getConnection();
-			ps = conn.prepareStatement("DELETE FROM contato WHERE email = ?");
+			ps = conn.prepareStatement("DELETE FROM contato WHERE id = ?");
 			ps.setInt(1, contato.getId());
 			int ret = ps.executeUpdate();
 			ConnectionFactory.close(conn, ps);
