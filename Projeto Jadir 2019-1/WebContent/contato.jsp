@@ -100,7 +100,7 @@
           </li>
           <li>
           <div class="dropdown">
-            <button class="dropbtn">Cadastre-se</button>
+            <button class="dropbtn">CADASTRE-SE</button>
           
             <div class="dropdown-content">
               <a href="cadastroUsuario.jsp">Cliente</a>
@@ -130,7 +130,7 @@
 		 <div class="row">
 	 	  	<div id="preto" class="col-sm-12">
 			 	
-				<!-- Início da área editável-->
+				<!-- Inï¿½cio da ï¿½rea editï¿½vel-->
 			 	<h1 class="titulo">Fale conosco</h1>
 			 	<hr/>
 
@@ -150,7 +150,7 @@
 			 		Motivo:
 			 		<select>
 			 			<option selected>----Selecione----</option>
-			 			<option value="reclamacao">Reclamação</option>
+			 			<option value="reclamacao">Reclamaï¿½ï¿½o</option>
 			 			<option value="elogio">Elogio</option>
 			 			<option value="contato">Contato</option>
 			 		</select>
@@ -166,7 +166,7 @@
 					<button type="reset">Limpar Dados</button>
 					
 			 	</form>
-				<!-- Fim da área editável-->				
+				<!-- Fim da ï¿½rea editï¿½vel-->				
 				
 			 </div>
 		 </div>
@@ -175,7 +175,7 @@
 				  <div class="row align-items-center">
 					<div class="col-lg-6 order-lg-2">
 					  <div class="p-5">
-						<a href="https://www.google.com.br/maps/place/Universidade+Cidade+de+São+Paulo+-+UNICID+-+Bloco+Alfa/@-23.5356673,-46.5601771,17z/data=!4m5!3m4!1s0x94ce5ef14dffb3d9:0x8d65b82df4aab92c!8m2!3d-23.5359197!4d-46.5596777" target="_blank">
+						<a href="https://www.google.com.br/maps/place/Universidade+Cidade+de+Sï¿½o+Paulo+-+UNICID+-+Bloco+Alfa/@-23.5356673,-46.5601771,17z/data=!4m5!3m4!1s0x94ce5ef14dffb3d9:0x8d65b82df4aab92c!8m2!3d-23.5359197!4d-46.5596777" target="_blank">
 							<img class="img-fluid rounded-circle" src="img/localizacao.png" alt=""></a>
 					  </div>
 					</div>

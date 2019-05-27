@@ -1,15 +1,14 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
-<html lang="pt_BR">
+<html lang="en">
 
 <head>
 
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Inï¿½cio</title>
+  <title>Início</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -22,41 +21,13 @@
   <link href="css/one-page-wonder.min.css" rel="stylesheet">
    <!--Icones de Redes Sociais-->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link href="css/estilo.css" rel="stylesheet">
 	<style type="text/css">
-   .dropbtn {
-    background-color:#4C4C4C;
-       color: #A6A6A6;
-       padding: 15px;
-       padding-top: 0px;
-     padding-left:5px; 
-     font-size: 16px;
-       border: none;
-     width: 100%;
-       height: 36px !important;
-    }
-    
-    .dropdown {
-     position: relative;
-     display: inline-block;
-    }
-    
-    .dropdown-content {
-     display: none;
-      position: absolute;
-     background-color: #f1f1f1;
-     min-width: 169px;
-     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-     z-index: 1;
-    } 
-    .dropdown-content a {
-     color: black;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-    }
-    .dropdown-content a:hover {background-color: #ddd;}
-    .dropdown:hover .dropdown-content {display: block;}
-    .dropdown:hover .dropbtn {background-color: #4C4C4C;} 
+	
+	
+	
+   
   </style>
 </head>
 
@@ -65,27 +36,27 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container">
-      <img src="img/newlogo3.png"><a class="navbar-brand" href="#">CORAÃ‡Ã•ES</a>
+      <img src="img/newlogo3.png"><a class="navbar-brand" href="#">CORAÇÕES</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
 		<li class="nav-item">
-            <a class="nav-link" href="index.jsp">Inï¿½cio</a>
+            <a class="nav-link" href="index.jsp">Início</a>
          </li>
 		<li class="nav-item">
-            <a class="nav-link" href="sobre.jsp">Sobre nï¿½s</a>
+            <a class="nav-link" href="sobre.jsp">Sobre nós</a>
          </li>
 		<li class="nav-item">
             <a class="nav-link" href="contato.jsp">Contato</a>
           </li>
 		  <li class="nav-item">
-            <a class="nav-link" href="agenda.jsp">Agenda</a>
+            <a class="nav-link" href="calendario.jsp">Calendário</a>
           </li>
           <li>
           <div class="dropdown ">
-            <button class="dropbtn">Cadastre-se</button>
+            <button class="dropbtn">CADASTRE-SE</button>
           
             <div class="dropdown-content">
               <a href="cadastroUsuario.jsp">Cliente</a>
@@ -128,7 +99,7 @@
       <div class="carousel-item active">
         <img src="img/banner1d.jpg" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h2>OS MELHORES ESPECIALISTAS ESTï¿½O AQUI</h2>
+          <h2>OS MELHORES ESPECIALISTAS ESTÃƒO AQUI</h2>
           <p></p>
         </div>
       </div>
@@ -142,7 +113,7 @@
       <div class="carousel-item">
         <img src="img/banner2.jpg" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h2>UM SORRISO BONITO FAZ A DIFERENï¿½A</h2>
+          <h2>UM SORRISO BONITO FAZ A DIFERENÃ‡A</h2>
           <p></p>
         </div>
       </div>

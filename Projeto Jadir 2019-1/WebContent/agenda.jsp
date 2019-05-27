@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Área do cliente</title>
+  <title>ï¿½rea do cliente</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -25,43 +25,11 @@
     
     <!--Icones de Redes Sociais-->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style type="text/css">
-        .dropbtn {
-        background-color:#4C4C4C;
-         color: #A6A6A6;
-         padding: 15px;
-         padding-top: 0px;
-         padding-left:5px; 
-         font-size: 16px;
-         border: none;
-         width: 90%;
-         height: 36px !important;
-        }
-        
-        .dropdown {
-         position: relative;
-         display: inline-block;
-        }
-        
-        .dropdown-content {
-         display: none;
-        position: absolute;
-         background-color: #f1f1f1;
-         min-width: 160px;
-         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-         z-index: 1;
-        }   
-        .dropdown-content a {
-         color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-        }
-        .dropdown-content a:hover {background-color: #ddd;}
-        .dropdown:hover .dropdown-content {display: block;}
-        .dropdown:hover .dropbtn {background-color: #4C4C4C;}
-
-    </style>
+    <link href="css/estilo.css" rel="stylesheet">
+    
+    
+    
+    
 </head>
 
 <body>
@@ -84,11 +52,9 @@
             <a class="nav-link" href="sobre.jsp">Sobre nós</a>
          </li>
         <li class="nav-item">
-            <a class="nav-link" href="contato.jsp">Contato</a>
+            <a class="nav-link" href="calendario.jsp">Calendário</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="agenda.jsp">Agenda</a>
-          </li>
+          
          <!-- <li class="nav-item"><a class="nav-link">Nome do cliente-->
                 <div class="dropdown">
                     <button class="dropbtn"><%out.write("<a class=\"nav-link\"Bem vindo: " + 
@@ -112,14 +78,14 @@
          <div class="row">
             <div id="preto" class="col-sm-12">
                 
-                <!-- Início da área editável-->
+                <!-- Inï¿½cio da ï¿½rea editï¿½vel-->
                 <center>
                 <br><br>
                 <form>
                 <img src="img/calendario.jpg" width="800px">
                 </form>
                 </center>
-                <!-- Fim da área editável-->                
+                <!-- Fim da ï¿½rea editï¿½vel-->                
                 
              </div>
          </div>

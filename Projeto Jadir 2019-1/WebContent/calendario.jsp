@@ -170,22 +170,27 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
 		<li class="nav-item">
-            <a class="nav-link" href="#">Início</a>
+            <a class="nav-link" href="index.jsp">Início</a>
          </li>
 		<li class="nav-item">
-            <a class="nav-link" href="#">Sobre nós</a>
+            <a class="nav-link" href="sobre.jsp">Sobre nós</a>
          </li>
 		<li class="nav-item">
-            <a class="nav-link" href="#">Contato</a>
+            <a class="nav-link" href="contato.jsp">Contato</a>
           </li>
-		  <li class="nav-item">
-            <a class="nav-link" href="#">Agenda</a>
+		 
+          <li class="nav-item">
+           <div class="dropdown ">
+            <button class="dropbtn">CADASTRE-SE</button>
+          
+            <div class="dropdown-content">
+              <a href="cadastroUsuario.jsp">Cliente</a>
+              <a href="cadDentista.jsp">Dentista</a>
+          </div>
+        </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Cadastre-se</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Entrar</a>
+            <a class="nav-link" href="login.jsp">Entrar</a>
           </li>
         </ul>
       </div>
@@ -198,15 +203,15 @@
 		 <div class="row">
 	 	  	<div id="preto" class="col-sm-12">
 			 	
-				<!-- Início da área editável-->
-			 	<h1 class="titulo"> Calendário de Agendamento</h1>
+				<!-- Inï¿½cio da ï¿½rea editï¿½vel-->
+			 	<h1 class="titulo"> CalendÃ¡rio de Agendamento</h1>
 				
 				
 				 <div id='calendar'></div>
 				
 				
 			 
-				<!-- Fim da área editável-->				
+				<!-- Fim da ï¿½rea editï¿½vel-->				
 				
 			 </div>
 		 </div>

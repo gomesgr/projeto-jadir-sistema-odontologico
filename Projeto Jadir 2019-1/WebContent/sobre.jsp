@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Sobre Nós</title>
+  <title>Sobre Nï¿½s</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -100,7 +100,7 @@
           </li>
           <li>
           <div class="dropdown">
-            <button class="dropbtn">Cadastre-se</button>
+            <button class="dropbtn">CADASTRE-SE</button>
           
             <div class="dropdown-content">
               <a href="cadastroUsuario.jsp">Cliente</a>
@@ -129,7 +129,7 @@
 		 <div class="row">
 	 	  	<div id="preto" class="col-sm-12">
 			 	
-				<!-- Início da área editável-->
+				<!-- Inï¿½cio da ï¿½rea editï¿½vel-->
 			 	<h1 class="titulo">Quem somos</h1>
 			 	<hr>
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.
@@ -138,7 +138,7 @@
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.
 
-				<!-- Fim da área editável-->				
+				<!-- Fim da ï¿½rea editï¿½vel-->				
 				
 			 </div>
 		 </div>

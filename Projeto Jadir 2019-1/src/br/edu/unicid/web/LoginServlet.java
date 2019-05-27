@@ -51,13 +51,12 @@ public class LoginServlet extends HttpServlet {
 					paciente.setLogin(request.getParameter("login"));
 					paciente.setSenha(request.getParameter("senha"));
 					pdao = new PacienteDAO();
-					System.out.println("fora do if");
+					
 					if(pdao.consultarLogin(paciente.getLogin(), paciente.getSenha())) {
 						session = request.getSession(true);
-						System.out.println("salt");
 						session.setAttribute("paciente", paciente);
 						session.setAttribute("usuario", paciente.getLogin());
-						rd = request.getRequestDispatcher("/areaCli.jsp");
+						rd = request.getRequestDispatcher("/clienteAcesso.htm");
 						rd.forward(request, response);
 					} else {
 						System.out.println("senao");
