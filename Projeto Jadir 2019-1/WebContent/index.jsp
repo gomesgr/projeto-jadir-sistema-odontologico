@@ -113,7 +113,7 @@
       <div class="carousel-item">
         <img src="img/banner2.jpg" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h2>UM SORRISO BONITO FAZ A DIFERENÃ‡A</h2>
+          <h2>UM SORRISO BONITO FAZ A DIFERENÇA</h2>
           <p></p>
         </div>
       </div>
