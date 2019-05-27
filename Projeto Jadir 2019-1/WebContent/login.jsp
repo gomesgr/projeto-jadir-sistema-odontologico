@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt_BR">
 
 <head>
 
@@ -49,17 +49,17 @@
 		<!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container">
-      <img src="img/newlogo3.png"><a class="navbar-brand" href="#">&nbsp CORAÇÕES</a>
+      <img src="img/newlogo3.png"><a class="navbar-brand" href="#">&nbsp CORAÃ‡Ã•ES</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
 		<li class="nav-item">
-            <a class="nav-link" href="index.jsp">Início</a>
+            <a class="nav-link" href="index.jsp">InÃ­cio</a>
          </li>
 		<li class="nav-item">
-            <a class="nav-link" href="sobre.jsp">Sobre nós</a>
+            <a class="nav-link" href="sobre.jsp">Sobre nÃ³s</a>
          </li>
 		<li class="nav-item">
             <a class="nav-link" href="contato.jsp">Contato</a>
@@ -84,18 +84,21 @@
 		 <div class="row">
 	 	  	<div id="preto" class="col-sm-12">
 			 	
-				<!-- Início da área editável-->
-			 	<h2 class="titulo">Entrar <% 
+				<!-- Inï¿½cio da ï¿½rea editï¿½vel-->
+			 	<h2 class="titulo"><% 
             	if (session.getAttribute("confirme") != null)
-            		out.write(""+session.getAttribute("confirme")); 
+            		out.write("<span style=\"color=red;\">" + (String)session.getAttribute("confirme") + "</span>"); 
+            	else {
+            		out.write("Entrar");
+            	}
             	%></h2>
 		<center>
-				<form method="post" action="LoginServlet"><!-- colocar aqui o nome da pagina -->
+				<form method="get" action="LoginServlet"><!-- colocar aqui o nome da pagina -->
 
 				<input type="hidden" name="pageId" value="loginPage"/>
 			<font size="4" face="Sans-serif">
 			Tipo de login:<br/>
-			<input type="text" name="tipoLogin" placeholder="1 = Usuário 2 = Dentista" maxlength="30" required/>
+			<input type="text" name="tipoLogin" placeholder="1 = Usuï¿½rio 2 = Dentista" maxlength="30" required/>
 			<hr/>
 			Login:<br/>
 			<input type="text" name="login" maxlength="30" required/>
@@ -104,7 +107,7 @@
 			<input type="text" name="senha" maxlength="30" placeholder="Senha" required/>
 			<br/>
 			<a href="recupSenha.html"><font size="2">Esqueceu sua senha?</font></a><br/>
-			<a href="cadastroUsuario.html"><font size="2">Não possui login? Cadastre-se</font></a><br/>
+			<a href="cadastroUsuario.jsp"><font size="2">NÃ£o possui login? Cadastre-se</font></a><br/>
 
 			<hr/>
 
@@ -115,7 +118,7 @@
 		</font>
 		</form>
 			</center>
-				<!-- Fim da área editável-->				
+				<!-- Fim da ï¿½rea editï¿½vel-->				
 				
 			 </div>
 		 </div>

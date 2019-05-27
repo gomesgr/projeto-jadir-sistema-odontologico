@@ -38,7 +38,9 @@ public class LoginServlet extends HttpServlet {
 		Paciente paciente;
 		Dentista dentista;
 		PacienteDAO pdao;
+		HttpSession session;
 		DentistaDAO ddao;
+		RequestDispatcher rd = null;
 		
 		switch(tipo)
 		{
@@ -49,17 +51,20 @@ public class LoginServlet extends HttpServlet {
 					paciente.setLogin(request.getParameter("login"));
 					paciente.setSenha(request.getParameter("senha"));
 					pdao = new PacienteDAO();
-					
-					if(pdao.consultarLogin(paciente.getLogin(), paciente.getSenha()))
-					{
-						HttpSession session = request.getSession(true);
+					System.out.println("fora do if");
+					if(pdao.consultarLogin(paciente.getLogin(), paciente.getSenha())) {
+						session = request.getSession(true);
+						System.out.println("salt");
 						session.setAttribute("paciente", paciente);
-						response.sendRedirect("areaCli.jsp");
-					}
-					
-					else
-					{
-						// No page for this yet...
+						session.setAttribute("usuario", paciente.getLogin());
+						rd = request.getRequestDispatcher("/areaCli.jsp");
+						rd.forward(request, response);
+					} else {
+						System.out.println("senao");
+						session = request.getSession(true);
+						session.setAttribute("confirme", "LOGUE-SE PRIMEIRO");
+						rd = request.getRequestDispatcher("login.jsp");
+						rd.forward(request, response);
 					}
 				}
 				
@@ -80,14 +85,17 @@ public class LoginServlet extends HttpServlet {
 					
 					if(ddao.consultarLogin(dentista.getLogin(), dentista.getSenha()))
 					{
-						HttpSession session = request.getSession(true);
+						session = request.getSession(true);
 						session.setAttribute("dentista", dentista);
 						response.sendRedirect("paineldeAcesso.htm");
 					}
 					
 					else
 					{
-						// No page for this yet...
+						session = request.getSession(true);
+						session.setAttribute("confirme", "LOGUE-SE PRIMEIRO");
+						rd = request.getRequestDispatcher("login.jsp");
+						rd.forward(request, response);
 					}
 				}
 				

@@ -1,14 +1,15 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt_BR">
 
 <head>
 
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Início</title>
+  <title>Inï¿½cio</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -64,17 +65,17 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container">
-      <img src="img/newlogo3.png"><a class="navbar-brand" href="#">CORAÇÕES</a>
+      <img src="img/newlogo3.png"><a class="navbar-brand" href="#">CORAÃ‡Ã•ES</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
 		<li class="nav-item">
-            <a class="nav-link" href="index.jsp">Início</a>
+            <a class="nav-link" href="index.jsp">Inï¿½cio</a>
          </li>
 		<li class="nav-item">
-            <a class="nav-link" href="sobre.jsp">Sobre nós</a>
+            <a class="nav-link" href="sobre.jsp">Sobre nï¿½s</a>
          </li>
 		<li class="nav-item">
             <a class="nav-link" href="contato.jsp">Contato</a>
@@ -127,7 +128,7 @@
       <div class="carousel-item active">
         <img src="img/banner1d.jpg" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h2>OS MELHORES ESPECIALISTAS ESTÃO AQUI</h2>
+          <h2>OS MELHORES ESPECIALISTAS ESTï¿½O AQUI</h2>
           <p></p>
         </div>
       </div>
@@ -141,7 +142,7 @@
       <div class="carousel-item">
         <img src="img/banner2.jpg" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h2>UM SORRISO BONITO FAZ A DIFERENÇA</h2>
+          <h2>UM SORRISO BONITO FAZ A DIFERENï¿½A</h2>
           <p></p>
         </div>
       </div>

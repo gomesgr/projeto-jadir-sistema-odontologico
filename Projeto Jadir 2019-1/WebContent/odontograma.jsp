@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList"%>
-<%@ page import="br.unicid.bean.OdontogramRow"%>
+<%@ page import="br.edu.unicid.bean.OdontogramRow"%>
 
 <!DOCTYPE HTML>
 <html>

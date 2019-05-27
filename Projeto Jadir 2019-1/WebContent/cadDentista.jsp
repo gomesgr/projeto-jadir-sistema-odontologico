@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Cadastro Usuário</title>
+  <title>Cadastro Usuï¿½rio</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -45,17 +45,17 @@
 		<!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container">
-      <img src="img/newlogo3.png"><a class="navbar-brand" href="#">&nbsp CORAÇÕES</a>
+      <img src="img/newlogo3.png"><a class="navbar-brand" href="#">&nbsp CORAï¿½ï¿½ES</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
 		<li class="nav-item">
-            <a class="nav-link" href="index.jsp">Início</a>
+            <a class="nav-link" href="index.jsp">Inï¿½cio</a>
          </li>
 		<li class="nav-item">
-            <a class="nav-link" href="sobre.jsp">Sobre nós</a>
+            <a class="nav-link" href="sobre.jsp">Sobre nï¿½s</a>
          </li>
 		<li class="nav-item">
             <a class="nav-link" href="contato.jsp">Contato</a>
@@ -77,7 +77,7 @@
 		 <div class="row">
 	 	  	<div id="preto" class="col-sm-12">
 			 	
-				<!-- Início da área editável-->
+				<!-- Inï¿½cio da ï¿½rea editï¿½vel-->
 			 	<h2 class="titulo">Cadastro de Dentista </h2>
 
 				<form method="post" action="Servlet"><!-- colocar aqui o nome da pagina -->
@@ -111,7 +111,7 @@
 				<input type="reset" value="Limpar"/>
 			</center>
 		</form>
-				<!-- Fim da área editável-->				
+				<!-- Fim da ï¿½rea editï¿½vel-->				
 				
 			 </div>
 		 </div>

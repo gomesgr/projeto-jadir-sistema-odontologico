@@ -196,12 +196,12 @@ public class PacienteDAO
 		try
 		{
 			conn = ConnectionFactory.getConnection();
-			ps = conn.prepareStatement("SELECT login, senha FROM paciente WHERE login = ?, senha = ?");
+			ps = conn.prepareStatement("SELECT login, senha FROM paciente WHERE login = ? AND senha = ?");
 			ps.setString(1, login);
 			ps.setString(2, senha);
 			ResultSet rs = ps.executeQuery();
-			
-			if(rs != null)
+		
+			if(rs.next() == true)
 			{
 				return true;
 			}

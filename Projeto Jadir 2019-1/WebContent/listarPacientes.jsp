@@ -18,7 +18,7 @@
 			List<Paciente> pacientes = (LinkedList) request.getAttribute("pacientes");		
 			for (Paciente p: pacientes) {
 				end += "<tr>";
-				end += "<td><a href=\"Servlet?pageId=excluir&pacienteId" + "=" + p.getId() +"\">excluir</a></td>";
+				end += "<td><a href=\"Servlet?pageId=excluirPaciente&pacienteId" + "=" + p.getId() +"\">excluir</a></td>";
 				end += "<td>"+ p.getNome() + "</td>";
 				end += "<td>" + p.getCpf() + "</td>";
 				end += "<tr>";

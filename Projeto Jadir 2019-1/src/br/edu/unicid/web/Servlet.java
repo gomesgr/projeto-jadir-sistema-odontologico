@@ -50,13 +50,14 @@ public class Servlet extends HttpServlet {
 		PacienteDAO pdao;
 		DentistaDAO ddao;
 		List<Paciente> pacientes;
+		HttpSession session;
 
 		switch (pageId) {
 			case "removerElementoOdontograma":
 				int index = Integer.parseInt(request.getParameter("index"));
 				table.remove(index);
 				
-				HttpSession session = request.getSession();
+				session = request.getSession();
 				session.setAttribute("table", table);
 				RequestDispatcher rdo = request.getRequestDispatcher("odontograma.jsp");
 				rd.forward(request, response);
@@ -70,9 +71,9 @@ public class Servlet extends HttpServlet {
 
 				table.add(new OdontogramRow(tooth, procedure, price));
 				
-				HttpSession session2 = request.getSession();
-				session2.setAttribute("table", table);
-				RequestDispatcher rdo2 = request.getRequestDispatcher("odontograma.jsp");
+				session = request.getSession();
+				session.setAttribute("table", table);
+				rd = request.getRequestDispatcher("odontograma.jsp");
 				rd.forward(request, response);
 				
 				break;
@@ -100,7 +101,7 @@ public class Servlet extends HttpServlet {
 								.getParameter("dtaNasc")),
 							request.getParameter("telefoneCli"),
 							end,
-							request.getParameter("cidade"),
+							request.getParameter("cidadeCli"),
 							request.getParameter("bairroCli"),
 							request.getParameter("emailCli"),
 							request.getParameter("login"),
@@ -111,7 +112,7 @@ public class Servlet extends HttpServlet {
 					e.printStackTrace();
 				}
 				break;
-			case "cadDentista":
+			case "cadastroDentista":
 				ddao = new DentistaDAO();
 				System.out.println(ddao.salvar(new Dentista(
 							request.getParameter("nomeCli"),
@@ -130,7 +131,7 @@ public class Servlet extends HttpServlet {
 				rd = request.getRequestDispatcher("/listarPacientes.jsp");
 				rd.forward(request, response);
 				break;
-			case "excluirPacientes":
+			case "excluirPaciente":
 				pdao = new PacienteDAO();
 				Paciente paciente = new Paciente();
 				paciente.setId(Integer.parseInt(request.getParameter("pacienteId")));
