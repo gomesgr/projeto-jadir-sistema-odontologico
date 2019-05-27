@@ -49,17 +49,17 @@
 		<!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container">
-      <img src="img/newlogo3.png"><a class="navbar-brand" href="#">&nbsp CORAÃ‡Ã•ES</a>
+      <img src="img/newlogo3.png"><a class="navbar-brand" href="#">&nbsp CORAÇÕ•ES</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
 		<li class="nav-item">
-            <a class="nav-link" href="index.jsp">InÃ­cio</a>
+            <a class="nav-link" href="index.jsp">Início</a>
          </li>
 		<li class="nav-item">
-            <a class="nav-link" href="sobre.jsp">Sobre nÃ³s</a>
+            <a class="nav-link" href="sobre.jsp">Sobre nós</a>
          </li>
 		<li class="nav-item">
             <a class="nav-link" href="contato.jsp">Contato</a>
@@ -102,7 +102,7 @@
 			<input type="text" name="senha" maxlength="30" placeholder="Senha" required/>
 			<br/>
 			<a href="recupSenha.html"><font size="2">Esqueceu sua senha?</font></a><br/>
-			<a href="cadastroUsuario.html"><font size="2">NÃ£o possui login? Cadastre-se</font></a><br/>
+			<a href="cadastroUsuario.html"><font size="2">Não possui login? Cadastre-se</font></a><br/>
 
 			<hr/>
 

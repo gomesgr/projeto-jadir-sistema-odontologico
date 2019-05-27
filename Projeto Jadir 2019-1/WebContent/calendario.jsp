@@ -204,7 +204,7 @@
 	 	  	<div id="preto" class="col-sm-12">
 			 	
 				<!-- InÔøΩcio da ÔøΩrea editÔøΩvel-->
-			 	<h1 class="titulo"> Calend√°rio de Agendamento</h1>
+			 	<h1 class="titulo"> Calend·rio de Agendamento</h1>
 				
 				
 				 <div id='calendar'></div>
