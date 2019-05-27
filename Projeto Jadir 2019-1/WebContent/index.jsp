@@ -65,15 +65,7 @@
         </div>
       </li>
           <li class="nav-item">
-          	<%
-          		if (session.getAttribute("usuario") != null) {
-          			out.write("");
-          			
-          			out.write("<a class=\"nav-link\">Bem vindo: " + session.getAttribute("usuario")+"</a>");
-          		} else {
-          			out.write("<a class=\"nav-link\" href=\"login.jsp\">Entrar</a>");	
-          		}
-          	%>
+          	<a href="login.jsp" class="nav-link">Entrar</a>
           </li>
 
 

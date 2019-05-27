@@ -57,9 +57,7 @@
           
          <!-- <li class="nav-item"><a class="nav-link">Nome do cliente-->
                 <div class="dropdown">
-                    <button class="dropbtn"><%out.write("<a class=\"nav-link\"Bem vindo: " + 
-                			session.getAttribute("usuario")+ "</a>");
-                		%></button>
+                   <span class="dropbtn"> Entrar </span>
                     
                     <div class="dropdown-content">
                         <a href="cadConsulta.jsp">Agendar Consulta</a>
