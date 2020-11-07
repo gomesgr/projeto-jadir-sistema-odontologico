@@ -5,12 +5,12 @@ Projeto da materia de "Sistemas Cliente-Servidor" em conjunto com mais 9 membros
 
 ### Back-end ###
 * Gabriel R.
-* Rodrigo P.
+* [Rodrigo P.](https://github.com/Akavariat)
 
 ### Front-end ###
 * Diego
 * Gilson
-* Joas
+* [Joas](https://github.com/JoasChoque)
 
 ### DBA ###
 * Joseph
@@ -19,4 +19,4 @@ Projeto da materia de "Sistemas Cliente-Servidor" em conjunto com mais 9 membros
 * Rodrigo
 
 ### Gerente ###
-* Mariana D.
+* [Mariana D.](https://github.com/MariDantas)
