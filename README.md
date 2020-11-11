@@ -9,7 +9,7 @@ Projeto da materia de "Sistemas Cliente-Servidor" em conjunto com mais 9 membros
 
 ### Front-end ###
 * Diego
-* Gilson
+* [Gilson](https://github.com/Gilszon)
 * [Joas](https://github.com/JoasChoque)
 
 ### DBA ###
