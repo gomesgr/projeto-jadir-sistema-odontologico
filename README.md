@@ -5,7 +5,7 @@ Projeto da materia de "Sistemas Cliente-Servidor" em conjunto com mais 9 membros
 
 ### Back-end ###
 * Gabriel R.
-* [Rodrigo P.](https://github.com/Akavariat)
+* [Rodrigo P.](https://github.com/pereirarodrigo)
 
 ### Front-end ###
 * Diego
